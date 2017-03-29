@@ -3,7 +3,7 @@ package com.mediatuotantoph.nhlxstats.game.domain;
 import java.util.Date;
 
 /**
- * Class for Game which contains info about the game score.
+ * Class for game which assembles info about the game opponents, score etc.
  * 
  * @author Pirkka Huhtala
  *
@@ -11,6 +11,15 @@ import java.util.Date;
 public class Game {
     private Integer id;
     private Date date;
+    private Side home;
+    private Side visitor;
+
+    public Game(Integer id, Date date, Side home, Side visitor) {
+        this.id = id;
+        this.date = date;
+        this.home = home;
+        this.visitor = visitor;
+    }
 
     public Integer getId() {
         return id;
@@ -18,5 +27,13 @@ public class Game {
 
     public Date getDate() {
         return date;
+    }
+
+    public Side getHome() {
+        return home;
+    }
+
+    public Side getVisitor() {
+        return visitor;
     }
 }

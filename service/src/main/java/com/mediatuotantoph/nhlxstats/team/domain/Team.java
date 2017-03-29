@@ -1,16 +1,16 @@
-package com.mediatuotantoph.nhlxstats.player.domain;
+package com.mediatuotantoph.nhlxstats.team.domain;
 
 /**
- * Class for player which contain information about player profile.
+ * Class for team information.
  * 
  * @author Pirkka Huhtala
  *
  */
-public class Player {
+public class Team {
     private Integer id;
     private String name;
 
-    public Player(Integer id, String name) {
+    public Team(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
