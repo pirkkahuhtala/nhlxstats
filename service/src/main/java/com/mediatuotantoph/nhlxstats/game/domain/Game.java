@@ -9,14 +9,14 @@ import java.util.Date;
  *
  */
 public class Game {
-	private Integer id;
-	private Date date;
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public Date getDate() {
-		return date;
-	}
+    private Integer id;
+    private Date date;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }

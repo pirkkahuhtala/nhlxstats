@@ -7,14 +7,14 @@ package com.mediatuotantoph.nhlxstats.player.domain;
  *
  */
 public class Player {
-	private Integer id;
-	private String name;
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    private Integer id;
+    private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
