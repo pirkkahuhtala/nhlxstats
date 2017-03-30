@@ -6,6 +6,16 @@ package com.mediatuotantoph.nhlxstats.player.application;
  * @author Pirkka Huhtala
  *
  */
-public interface PlayerDTO {
+public class PlayerDTO {
+
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 }
