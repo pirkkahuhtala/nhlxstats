@@ -1,7 +1,7 @@
 package com.mediatuotantoph.nhlxstats.game.application;
 
 /**
- * Class for score data transfer object
+ * Class for score data transfer object.
  * 
  * @author Pirkka Huhtala
  *

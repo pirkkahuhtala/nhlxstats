@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Class for Dozer mapper configuration
+ * Class for Dozer mapper configuration.
  * 
  * @author Pirkka Huhtala
  *

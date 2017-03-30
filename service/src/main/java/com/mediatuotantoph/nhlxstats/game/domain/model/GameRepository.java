@@ -3,7 +3,7 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 import java.util.Collection;
 
 /**
- * Interface for game repository
+ * Interface for game repository.
  * 
  * @author Pirkka Huhtala
  *
