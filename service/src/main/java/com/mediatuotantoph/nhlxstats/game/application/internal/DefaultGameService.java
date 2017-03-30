@@ -1,6 +1,7 @@
 package com.mediatuotantoph.nhlxstats.game.application.internal;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ public class DefaultGameService implements GameService {
     private Mapper mapper;
     @Autowired
     private GameRepository gameRepository;
-    
+
     @Override
-    public void add(GameDTO game) {        
+    public void add(GameDTO game) {
         gameRepository.add(convertToGame(game));
     }
 
@@ -42,10 +43,11 @@ public class DefaultGameService implements GameService {
     }
 
     @Override
-    public Collection<Game> find(PlayerDTO player) {
-       return gameRepository.find(player.getId());
+    public Collection<GameDTO> find(PlayerDTO player) {
+        return gameRepository.find(player.getId()).stream().map(game -> mapper.map(game, GameDTO.class))
+                .collect(Collectors.toList());
     }
-    
+
     private Game convertToGame(GameDTO gameDTO) {
         return mapper.map(gameDTO, Game.class);
     }

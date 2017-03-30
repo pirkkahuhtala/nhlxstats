@@ -2,7 +2,6 @@ package com.mediatuotantoph.nhlxstats.game.application;
 
 import java.util.Collection;
 
-import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
 
 /**
@@ -18,6 +17,6 @@ public interface GameService {
     
     public void delete(GameDTO game);
     
-    public Collection<Game> find(PlayerDTO player);
+    public Collection<GameDTO> find(PlayerDTO player);
     
 }
