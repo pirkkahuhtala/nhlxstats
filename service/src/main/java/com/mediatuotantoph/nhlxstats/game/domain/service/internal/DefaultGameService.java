@@ -24,13 +24,13 @@ public class DefaultGameService implements GameService {
     @Override
     public void add(Game game) {
         validate(game);
-        gameRepository.add(game);
+        gameRepository.insert(game);
     }
 
     @Override
     public void update(Game game) {
         validate(game);
-        gameRepository.update(game);
+        gameRepository.save(game);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class DefaultGameService implements GameService {
 
     @Override
     public Collection<Game> find(Player player) {
-        return gameRepository.find(player.getId());
+        return gameRepository.findByHomePlayerIdOrVisitorPlayerId(player.getId());
     }
 
     private void validate(Game game) {

@@ -2,14 +2,20 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * Class for game which assembles info about the game opponents, score etc.
  * 
  * @author Pirkka Huhtala
  *
  */
+@Document
 public class Game {
-    private Integer id;
+    
+    @Id
+    private String id;
     private Date date;
     private Side home;
     private Side visitor;
@@ -18,14 +24,13 @@ public class Game {
         // for mapping purposes
     }
     
-    public Game(Integer id, Date date, Side home, Side visitor) {
-        this.id = id;
+    public Game(Date date, Side home, Side visitor) {
         this.date = date;
         this.home = home;
         this.visitor = visitor;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 

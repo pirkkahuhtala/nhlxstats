@@ -13,6 +13,10 @@ public class Team {
     public Team() {
         // For mapping purposes
     }
+    
+    public Team(String name) {
+        this(null, name);
+    }
 
     public Team(Integer id, String name) {
         this.id = id;

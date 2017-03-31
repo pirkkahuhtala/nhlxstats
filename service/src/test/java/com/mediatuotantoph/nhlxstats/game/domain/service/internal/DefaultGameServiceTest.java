@@ -1,8 +1,6 @@
 package com.mediatuotantoph.nhlxstats.game.domain.service.internal;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.util.Date;
 
@@ -34,12 +32,12 @@ public class DefaultGameServiceTest {
         Team homeTeam = new Team(1, "Toronto Maple Leafs");
         Player visitorPlayer = new Player(2, "Player 2");
         Team visitorTeam = new Team(2, "Chicago Blackhawks");
-        Game game = new Game(null, new Date(), new Side(homePlayer, homeTeam, new Score()),
+        Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
 
         gameService.add(game);
 
-        verify(gameRepository).add(game);
+        verify(gameRepository).insert(game);
 
     }
 
@@ -50,13 +48,13 @@ public class DefaultGameServiceTest {
         Team homeTeam = new Team(1, "Toronto Maple Leafs");
         Player visitorPlayer = new Player(2, "Player 2");
         Team visitorTeam = new Team(2, "Chicago Blackhawks");
-        Game game = new Game(null, new Date(), new Side(homePlayer, homeTeam, new Score()),
+        Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
 
         gameService.update(game);
 
-        verify(gameRepository).update(game);
-        
+        verify(gameRepository).save(game);
+
     }
 
     @Test
@@ -66,24 +64,24 @@ public class DefaultGameServiceTest {
         Team homeTeam = new Team(1, "Toronto Maple Leafs");
         Player visitorPlayer = new Player(2, "Player 2");
         Team visitorTeam = new Team(2, "Chicago Blackhawks");
-        Game game = new Game(null, new Date(), new Side(homePlayer, homeTeam, new Score()),
+        Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
 
         gameService.delete(game);
 
         verify(gameRepository).delete(game);
-        
+
     }
 
     @Test
     public void testFind() throws Exception {
 
         Player player = new Player(1, "Player 1");
-        
+
         gameService.find(player);
-        
-        verify(gameRepository).find(player.getId());
-        
+
+        verify(gameRepository).findByHomePlayerIdOrVisitorPlayerId(player.getId());
+
     }
 
 }

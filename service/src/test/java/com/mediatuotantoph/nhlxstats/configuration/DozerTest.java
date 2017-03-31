@@ -66,7 +66,7 @@ public class DozerTest {
     
     @Test
     public void testGame() {
-        Game game = new Game(1, new Date(), new Side(), new Side());        
+        Game game = new Game(new Date(), new Side(), new Side());        
         assertNotNull(mapper.map(game, GameDTO.class));
     }
     

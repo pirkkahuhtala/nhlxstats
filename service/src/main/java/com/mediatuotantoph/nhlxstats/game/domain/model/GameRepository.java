@@ -2,20 +2,18 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 
 import java.util.Collection;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  * Interface for game repository.
  * 
  * @author Pirkka Huhtala
  *
  */
-public interface GameRepository {
+@Repository
+public interface GameRepository extends MongoRepository<Game, String> {
 
-    public void add(Game game);
-
-    public void update(Game game);
-
-    public void delete(Game game);
-
-    public Collection<Game> find(Integer playerId);
+    public Collection<Game> findByHomePlayerIdOrVisitorPlayerId(Integer playerId);
 
 }
