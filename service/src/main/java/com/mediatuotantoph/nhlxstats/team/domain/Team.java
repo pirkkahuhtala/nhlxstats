@@ -9,6 +9,10 @@ package com.mediatuotantoph.nhlxstats.team.domain;
 public class Team {
     private Integer id;
     private String name;
+    
+    public Team() {
+        // For mapping purposes
+    }
 
     public Team(Integer id, String name) {
         this.id = id;

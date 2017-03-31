@@ -17,6 +17,10 @@ public class Score {
     private int faceoffsWon;
     private int breakaways;
     private int shorthandedGoals;
+    
+    public Score() {
+        // For mapping purposes
+    }
 
     public int getGoals() {
         return goals;

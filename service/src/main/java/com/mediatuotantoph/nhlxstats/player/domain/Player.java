@@ -10,6 +10,10 @@ public class Player {
     private Integer id;
     private String name;
 
+    public Player() {
+        // for mapping purposes
+    }
+
     public Player(Integer id, String name) {
         this.id = id;
         this.name = name;

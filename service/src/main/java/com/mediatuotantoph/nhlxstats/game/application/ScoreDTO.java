@@ -18,6 +18,10 @@ public class ScoreDTO {
     private int faceoffsWon;
     private int breakaways;
     private int shorthandedGoals;
+    
+    public ScoreDTO() {
+        // for mapping purposes
+    }
 
     public int getGoals() {
         return goals;

@@ -14,6 +14,10 @@ public class Side {
     private Team team;
     private Score score;
 
+    public Side() {
+        // for mapping purposes
+    }
+
     public Side(Player player, Team team, Score score) {
         this.player = player;
         this.team = team;
