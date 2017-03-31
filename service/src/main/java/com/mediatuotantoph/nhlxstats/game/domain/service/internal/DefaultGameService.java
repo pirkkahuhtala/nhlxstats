@@ -3,6 +3,7 @@ package com.mediatuotantoph.nhlxstats.game.domain.service.internal;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.common.NHLXStatsException;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
@@ -16,6 +17,7 @@ import com.mediatuotantoph.nhlxstats.player.domain.Player;
  * @author Pirkka Huhtala
  *
  */
+@Service
 public class DefaultGameService implements GameService {
 
     @Autowired
