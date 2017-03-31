@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.game.application.internal;
 
 import org.junit.Test;
 
-public class DefaultGameServiceTest {
+public class DefaultGameResourceTest {
 
     @Test
     public void testAdd() throws Exception {

@@ -40,4 +40,12 @@ public class Game {
     public Side getVisitor() {
         return visitor;
     }
+
+    public Integer getHomePlayerId() {
+        return getHome().getPlayerId();
+    }
+
+    public Integer getVisitorPlayerId() {
+        return getVisitor().getPlayerId();
+    }
 }

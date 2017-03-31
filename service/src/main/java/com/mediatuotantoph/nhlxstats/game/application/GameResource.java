@@ -9,7 +9,7 @@ import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
  * @author Pirkka Huhtala
  *
  */
-public interface GameService {
+public interface GameResource {
 
     public void add(GameDTO game);
     

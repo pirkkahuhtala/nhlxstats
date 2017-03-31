@@ -27,6 +27,10 @@ public class Side {
     public Player getPlayer() {
         return player;
     }
+    
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     public Team getTeam() {
         return team;
@@ -34,5 +38,9 @@ public class Side {
 
     public Score getScore() {
         return score;
+    }
+
+    public Integer getPlayerId() {
+        return getPlayer().getId();
     }
 }
