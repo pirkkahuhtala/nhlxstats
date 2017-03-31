@@ -42,6 +42,9 @@ public class Game {
     }
 
     public Integer getHomePlayerId() {
+        if (getHome() == null) {
+            return null;
+        }
         return getHome().getPlayerId();
     }
 

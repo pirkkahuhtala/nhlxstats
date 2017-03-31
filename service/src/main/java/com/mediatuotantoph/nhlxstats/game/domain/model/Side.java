@@ -41,6 +41,9 @@ public class Side {
     }
 
     public Integer getPlayerId() {
+        if (getPlayer() == null) {
+            return null;
+        }
         return getPlayer().getId();
     }
 }

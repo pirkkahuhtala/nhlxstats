@@ -27,37 +27,38 @@ public class DefaultGameResource implements GameResource {
     @Autowired
     private Mapper mapper;
     @Autowired
-    private PlayerService playerService;
-    @Autowired
     private GameService gameService;
+    @Autowired
+    private PlayerService playerService;
 
     @Override
     public void add(GameDTO gameDTO) {
-        gameService.add(convertToGame(gameDTO));
+        Game game = convertToGame(gameDTO);
+        gameService.add(game);
+        mapper.map(convertToGameDTO(game), gameDTO);
     }
 
     @Override
     public void update(GameDTO gameDTO) {
-        gameService.update(convertToGame(gameDTO));
+        
     }
 
     @Override
     public void delete(GameDTO gameDTO) {
-        gameService.delete(convertToGame(gameDTO));
+
     }
 
     @Override
     public Collection<GameDTO> find(PlayerDTO playerDTO) {
-        return gameService.find(mapToPlayer(playerDTO)).stream().map(game -> convertToGameDTO(game))
+        return gameService.find(playerDTO.getId()).stream().map(game -> convertToGameDTO(game))
                 .collect(Collectors.toList());
     }
 
-    private Player mapToPlayer(PlayerDTO playerDTO) {
-        return mapper.map(playerDTO, Player.class);
-    }
-
-    private GameDTO convertToGameDTO(Game game) {
-        return mapper.map(game, GameDTO.class);
+    private void findAndAssignPlayers(Game game) {
+        Player homePlayer = playerService.find(game.getHomePlayerId());
+        game.getHome().setPlayer(homePlayer);
+        Player visitorPlayer = playerService.find(game.getVisitorPlayerId());
+        game.getVisitor().setPlayer(visitorPlayer);
     }
 
     private Game convertToGame(GameDTO gameDTO) {
@@ -66,11 +67,8 @@ public class DefaultGameResource implements GameResource {
         return game;
     }
 
-    private void findAndAssignPlayers(Game game) {
-        Player homePlayer = playerService.find(game.getHomePlayerId());
-        game.getHome().setPlayer(homePlayer);
-        Player visitorPlayer = playerService.find(game.getVisitorPlayerId());
-        game.getVisitor().setPlayer(visitorPlayer);
+    private GameDTO convertToGameDTO(Game game) {
+        return mapper.map(game, GameDTO.class);
     }
 
 }
