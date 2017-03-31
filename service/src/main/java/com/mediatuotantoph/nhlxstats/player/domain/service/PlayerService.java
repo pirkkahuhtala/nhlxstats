@@ -1,4 +1,6 @@
-package com.mediatuotantoph.nhlxstats.player.domain;
+package com.mediatuotantoph.nhlxstats.player.domain.service;
+
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 
 /**
  * Interface for player service.

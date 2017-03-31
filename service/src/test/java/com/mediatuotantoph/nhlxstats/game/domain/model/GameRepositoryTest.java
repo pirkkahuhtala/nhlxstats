@@ -13,8 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mediatuotantoph.nhlxstats.configuration.Mongo;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
-import com.mediatuotantoph.nhlxstats.player.domain.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.model.PlayerRepository;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
 import com.mediatuotantoph.nhlxstats.team.domain.TeamRepository;
 

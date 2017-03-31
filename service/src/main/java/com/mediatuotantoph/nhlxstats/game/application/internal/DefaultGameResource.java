@@ -12,8 +12,8 @@ import com.mediatuotantoph.nhlxstats.game.application.GameResource;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
 import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
-import com.mediatuotantoph.nhlxstats.player.domain.PlayerService;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
 
 /**
  * Class for game application service.

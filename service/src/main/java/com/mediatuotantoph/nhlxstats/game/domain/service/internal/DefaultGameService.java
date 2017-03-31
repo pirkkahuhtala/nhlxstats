@@ -9,7 +9,7 @@ import com.mediatuotantoph.nhlxstats.common.NHLXStatsException;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.game.domain.model.GameRepository;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 
 /**
  * Class for game service implementation.

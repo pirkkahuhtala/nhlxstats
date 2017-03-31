@@ -3,7 +3,7 @@ package com.mediatuotantoph.nhlxstats.game.domain.service;
 import java.util.Collection;
 
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 
 /**
  * Interface for game service

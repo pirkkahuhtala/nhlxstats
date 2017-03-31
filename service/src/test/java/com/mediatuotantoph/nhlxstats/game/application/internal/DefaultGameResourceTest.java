@@ -21,8 +21,8 @@ import com.mediatuotantoph.nhlxstats.game.domain.model.Score;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
 import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
-import com.mediatuotantoph.nhlxstats.player.domain.PlayerService;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
 
 @RunWith(MockitoJUnitRunner.class)

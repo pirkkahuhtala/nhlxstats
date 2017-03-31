@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
 
 /**

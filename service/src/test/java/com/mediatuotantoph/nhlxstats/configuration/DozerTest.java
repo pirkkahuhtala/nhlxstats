@@ -17,7 +17,7 @@ import com.mediatuotantoph.nhlxstats.game.application.SideDTO;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Score;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
-import com.mediatuotantoph.nhlxstats.player.domain.Player;
+import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
 
 /**
