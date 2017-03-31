@@ -9,8 +9,7 @@ package com.mediatuotantoph.nhlxstats.game.application;
 public class SideDTO {
     private Integer playerId;
     private Integer teamId;
-    private SideDTO home;
-    private SideDTO visitor;
+    private ScoreDTO score;
 
     public Integer getPlayerId() {
         return playerId;
@@ -28,19 +27,11 @@ public class SideDTO {
         this.teamId = teamId;
     }
 
-    public SideDTO getHome() {
-        return home;
+    public ScoreDTO getScore() {
+        return score;
     }
-
-    public void setHome(SideDTO home) {
-        this.home = home;
-    }
-
-    public SideDTO getVisitor() {
-        return visitor;
-    }
-
-    public void setVisitor(SideDTO visitor) {
-        this.visitor = visitor;
+    
+    public void setScore(ScoreDTO score) {
+        this.score = score;
     }
 }
