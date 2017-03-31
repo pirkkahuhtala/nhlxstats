@@ -2,8 +2,6 @@ package com.mediatuotantoph.nhlxstats.game.application;
 
 import java.util.Collection;
 
-import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
-
 /**
  * Interface for game application service.
  * @author Pirkka Huhtala
@@ -17,6 +15,6 @@ public interface GameResource {
     
     public void delete(GameDTO game);
     
-    public Collection<GameDTO> find(PlayerDTO player);
+    public Collection<GameDTO> findByPlayerId(String playerId);
     
 }

@@ -20,7 +20,6 @@ import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Score;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
-import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
@@ -52,13 +51,13 @@ public class DefaultGameResourceTest {
         SideDTO homeSideDTO = new SideDTO();
         homeSideDTO.setPlayerId("1");
         homeSideDTO.setTeamId("2");
-        homeSideDTO.setScoreDTO(new ScoreDTO());
+        homeSideDTO.setScore(new ScoreDTO());
         gameDTO.setHome(homeSideDTO);
         
         SideDTO visitorSideDTO = new SideDTO();
         visitorSideDTO.setPlayerId("3");
         visitorSideDTO.setTeamId("4");
-        visitorSideDTO.setScoreDTO(new ScoreDTO());
+        visitorSideDTO.setScore(new ScoreDTO());
         gameDTO.setVisitor(visitorSideDTO);
         
         when(mapper.map(gameDTO, Game.class)).thenReturn(game);
@@ -89,13 +88,13 @@ public class DefaultGameResourceTest {
         SideDTO homeSideDTO = new SideDTO();
         homeSideDTO.setPlayerId("1");
         homeSideDTO.setTeamId("2");
-        homeSideDTO.setScoreDTO(new ScoreDTO());
+        homeSideDTO.setScore(new ScoreDTO());
         gameDTO.setHome(homeSideDTO);
         
         SideDTO visitorSideDTO = new SideDTO();
         visitorSideDTO.setPlayerId("3");
         visitorSideDTO.setTeamId("4");
-        visitorSideDTO.setScoreDTO(new ScoreDTO());
+        visitorSideDTO.setScore(new ScoreDTO());
         gameDTO.setVisitor(visitorSideDTO);
         
         when(mapper.map(gameDTO, Game.class)).thenReturn(game);
@@ -126,13 +125,13 @@ public class DefaultGameResourceTest {
         SideDTO homeSideDTO = new SideDTO();
         homeSideDTO.setPlayerId("1");
         homeSideDTO.setTeamId("2");
-        homeSideDTO.setScoreDTO(new ScoreDTO());
+        homeSideDTO.setScore(new ScoreDTO());
         gameDTO.setHome(homeSideDTO);
         
         SideDTO visitorSideDTO = new SideDTO();
         visitorSideDTO.setPlayerId("3");
         visitorSideDTO.setTeamId("4");
-        visitorSideDTO.setScoreDTO(new ScoreDTO());
+        visitorSideDTO.setScore(new ScoreDTO());
         gameDTO.setVisitor(visitorSideDTO);
         
         when(mapper.map(gameDTO, Game.class)).thenReturn(game);
@@ -148,12 +147,10 @@ public class DefaultGameResourceTest {
     @Test
     public void testFind() throws Exception {
 
-        PlayerDTO playerDTO = mock(PlayerDTO.class);
-        when(playerDTO.getId()).thenReturn("1");
         Player player = mock(Player.class);
         when(playerService.find("1")).thenReturn(player);
         
-        gameResource.find(playerDTO);
+        gameResource.findByPlayerId("1");
         
         verify(gameService).find(player);
         

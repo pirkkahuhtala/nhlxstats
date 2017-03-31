@@ -27,11 +27,11 @@ public class SideDTO {
         this.teamId = teamId;
     }
 
-    public ScoreDTO getScoreDTO() {
+    public ScoreDTO getScore() {
         return scoreDTO;
     }
 
-    public void setScoreDTO(ScoreDTO scoreDTO) {
+    public void setScore(ScoreDTO scoreDTO) {
         this.scoreDTO = scoreDTO;
     }
 }

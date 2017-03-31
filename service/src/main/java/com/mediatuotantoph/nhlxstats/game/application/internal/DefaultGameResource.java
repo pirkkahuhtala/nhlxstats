@@ -11,7 +11,6 @@ import com.mediatuotantoph.nhlxstats.game.application.GameDTO;
 import com.mediatuotantoph.nhlxstats.game.application.GameResource;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
-import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
 
@@ -52,8 +51,8 @@ public class DefaultGameResource implements GameResource {
     }
 
     @Override
-    public Collection<GameDTO> find(PlayerDTO playerDTO) {
-        return gameService.find(playerService.find(playerDTO.getId())).stream().map(game -> convertToGameDTO(game))
+    public Collection<GameDTO> findByPlayerId(String playerId) {
+        return gameService.find(playerService.find(playerId)).stream().map(game -> convertToGameDTO(game))
                 .collect(Collectors.toList());
     }
 
