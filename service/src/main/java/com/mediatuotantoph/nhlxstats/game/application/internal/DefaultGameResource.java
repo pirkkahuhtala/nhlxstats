@@ -40,17 +40,20 @@ public class DefaultGameResource implements GameResource {
 
     @Override
     public void update(GameDTO gameDTO) {
-        
+        Game game = convertToGame(gameDTO);
+        gameService.update(game);
+        mapper.map(convertToGameDTO(game), gameDTO);
     }
 
     @Override
     public void delete(GameDTO gameDTO) {
-
+        Game game = convertToGame(gameDTO);
+        gameService.delete(game);
     }
 
     @Override
     public Collection<GameDTO> find(PlayerDTO playerDTO) {
-        return gameService.find(playerDTO.getId()).stream().map(game -> convertToGameDTO(game))
+        return gameService.find(playerService.find(playerDTO.getId())).stream().map(game -> convertToGameDTO(game))
                 .collect(Collectors.toList());
     }
 

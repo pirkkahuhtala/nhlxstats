@@ -1,7 +1,8 @@
 package com.mediatuotantoph.nhlxstats.game.domain.model;
 
 import java.util.Collection;
-import java.util.Date;
+
+import com.mediatuotantoph.nhlxstats.player.domain.Player;
 
 /**
  * Interface for game service
@@ -13,10 +14,10 @@ public interface GameService {
 
     public void add(Game game);
 
-    public void update(int gameId, Date date, int homePlayerId, Score homeScore, int visitorPlayerId, Score visitorScore);
+    public void update(Game game);
 
-    public void delete(int gameId);
+    public void delete(Game game);
     
-    public Collection<Game> find(int id);
+    public Collection<Game> find(Player player);
 
 }
