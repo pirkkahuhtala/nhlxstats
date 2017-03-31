@@ -34,17 +34,20 @@ public class Game {
     }
 
     public Side getHome() {
+        if (home == null) {
+            home = new Side();
+        }
         return home;
     }
 
     public Side getVisitor() {
+        if (visitor == null) {
+            visitor = new Side();
+        }
         return visitor;
     }
 
     public Integer getHomePlayerId() {
-        if (getHome() == null) {
-            return null;
-        }
         return getHome().getPlayerId();
     }
 

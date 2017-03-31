@@ -13,8 +13,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.mediatuotantoph.nhlxstats.game.application.GameDTO;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
-import com.mediatuotantoph.nhlxstats.game.domain.model.GameService;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
+import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
 import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
 import com.mediatuotantoph.nhlxstats.player.domain.Player;
 import com.mediatuotantoph.nhlxstats.player.domain.PlayerService;

@@ -25,6 +25,9 @@ public class Side {
     }
 
     public Player getPlayer() {
+        if (player == null) {
+            player = new Player();
+        }
         return player;
     }
     
@@ -33,6 +36,9 @@ public class Side {
     }
 
     public Team getTeam() {
+        if (team == null) {
+            team = new Team();
+        }
         return team;
     }
 
@@ -41,9 +47,6 @@ public class Side {
     }
 
     public Integer getPlayerId() {
-        if (getPlayer() == null) {
-            return null;
-        }
         return getPlayer().getId();
     }
 }
