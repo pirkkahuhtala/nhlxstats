@@ -12,7 +12,7 @@ public class GameDTO {
     private Date date;
     private SideDTO home;
     private SideDTO visitor;
-
+    
     public Date getDate() {
         return date;
     }

@@ -14,6 +14,10 @@ public class Game {
     private Side home;
     private Side visitor;
 
+    public Game() {
+        // for mapping purposes
+    }
+    
     public Game(Integer id, Date date, Side home, Side visitor) {
         this.id = id;
         this.date = date;
