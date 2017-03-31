@@ -7,23 +7,23 @@ package com.mediatuotantoph.nhlxstats.game.application;
  *
  */
 public class SideDTO {
-    private Integer playerId;
-    private Integer teamId;
+    private String playerId;
+    private String teamId;
     private ScoreDTO scoreDTO;
 
-    public Integer getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(Integer playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
-    public Integer getTeamId() {
+    public String getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(Integer teamId) {
+    public void setTeamId(String teamId) {
         this.teamId = teamId;
     }
 

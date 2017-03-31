@@ -40,7 +40,7 @@ public class DefaultGameService implements GameService {
 
     @Override
     public Collection<Game> find(Player player) {
-        return gameRepository.findByHomePlayerIdOrVisitorPlayerId(player.getId());
+        return gameRepository.findByHomePlayerId(player.getId());
     }
 
     private void validate(Game game) {

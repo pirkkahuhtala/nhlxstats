@@ -8,6 +8,6 @@ package com.mediatuotantoph.nhlxstats.player.domain;
  */
 public interface PlayerService {
 
-    public Player find(Integer playerId);
+    public Player find(String playerId);
 
 }

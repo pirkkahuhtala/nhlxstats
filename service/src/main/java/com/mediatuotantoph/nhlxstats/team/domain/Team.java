@@ -1,13 +1,18 @@
 package com.mediatuotantoph.nhlxstats.team.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.mediatuotantoph.nhlxstats.common.Model;
+
 /**
  * Class for team information.
  * 
  * @author Pirkka Huhtala
  *
  */
-public class Team {
-    private Integer id;
+@Document
+public class Team extends Model {
+    
     private String name;
     
     public Team() {
@@ -18,13 +23,9 @@ public class Team {
         this(null, name);
     }
 
-    public Team(Integer id, String name) {
-        this.id = id;
+    public Team(String id, String name) {
+        super(id);
         this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getName() {

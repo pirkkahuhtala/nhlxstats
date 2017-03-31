@@ -2,8 +2,9 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 
 import java.util.Date;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.mediatuotantoph.nhlxstats.common.Model;
 
 /**
  * Class for game which assembles info about the game opponents, score etc.
@@ -12,10 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 @Document
-public class Game {
+public class Game extends Model {
     
-    @Id
-    private String id;
     private Date date;
     private Side home;
     private Side visitor;
@@ -28,10 +27,6 @@ public class Game {
         this.date = date;
         this.home = home;
         this.visitor = visitor;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public Date getDate() {
@@ -51,12 +46,5 @@ public class Game {
         }
         return visitor;
     }
-
-    public Integer getHomePlayerId() {
-        return getHome().getPlayerId();
-    }
-
-    public Integer getVisitorPlayerId() {
-        return getVisitor().getPlayerId();
-    }
+    
 }

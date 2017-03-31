@@ -1,5 +1,7 @@
 package com.mediatuotantoph.nhlxstats.game.domain.model;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import com.mediatuotantoph.nhlxstats.player.domain.Player;
 import com.mediatuotantoph.nhlxstats.team.domain.Team;
 
@@ -10,6 +12,8 @@ import com.mediatuotantoph.nhlxstats.team.domain.Team;
  *
  */
 public class Side {
+    
+    @DBRef
     private Player player;
     private Team team;
     private Score score;
@@ -46,7 +50,4 @@ public class Side {
         return score;
     }
 
-    public Integer getPlayerId() {
-        return getPlayer().getId();
-    }
 }

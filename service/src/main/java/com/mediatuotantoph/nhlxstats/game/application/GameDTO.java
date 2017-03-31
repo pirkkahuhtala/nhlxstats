@@ -2,25 +2,19 @@ package com.mediatuotantoph.nhlxstats.game.application;
 
 import java.util.Date;
 
+import com.mediatuotantoph.nhlxstats.common.ModelDTO;
+
 /**
  * Class for game data transfer object.
  * 
  * @author Pirkka Huhtala
  *
  */
-public class GameDTO {
-    private Integer id;
+public class GameDTO extends ModelDTO {
+
     private Date date;
     private SideDTO home;
     private SideDTO visitor;
-    
-    public void setId(Integer gameId) {
-        this.id = gameId;
-    }
-    
-    public Integer getId() {
-        return id;
-    }
     
     public Date getDate() {
         return date;

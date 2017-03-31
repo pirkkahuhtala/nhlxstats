@@ -35,22 +35,22 @@ public class DozerTest {
     @Test
     public void testSideDTO() {
         SideDTO sideDTO = new SideDTO();
-        sideDTO.setPlayerId(1);
-        sideDTO.setTeamId(2);
+        sideDTO.setPlayerId("1");
+        sideDTO.setTeamId("2");
         Side side = mapper.map(sideDTO, Side.class);
-        assertEquals((Integer)1, side.getPlayer().getId());
-        assertEquals((Integer)2, side.getTeam().getId());
+        assertEquals("1", side.getPlayer().getId());
+        assertEquals("2", side.getTeam().getId());
     }
     
     @Test
     public void testSide() {
-        Player player = new Player(1, "Player 1");
-        Team team = new Team(2, "Team 1");
+        Player player = new Player("1", "Player 1");
+        Team team = new Team("2", "Team 1");
         Score score = new Score();
         Side side = new Side(player, team, score);
         SideDTO sideDTO = mapper.map(side, SideDTO.class);
-        assertEquals((Integer)1, sideDTO.getPlayerId());
-        assertEquals((Integer)2, sideDTO.getTeamId());
+        assertEquals("1", sideDTO.getPlayerId());
+        assertEquals("2", sideDTO.getTeamId());
     }
     
     @Test

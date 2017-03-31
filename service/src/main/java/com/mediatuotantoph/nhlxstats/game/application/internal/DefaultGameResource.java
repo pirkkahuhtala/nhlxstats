@@ -58,9 +58,9 @@ public class DefaultGameResource implements GameResource {
     }
 
     private void findAndAssignPlayers(Game game) {
-        Player homePlayer = playerService.find(game.getHomePlayerId());
+        Player homePlayer = playerService.find(game.getHome().getPlayer().getId());
         game.getHome().setPlayer(homePlayer);
-        Player visitorPlayer = playerService.find(game.getVisitorPlayerId());
+        Player visitorPlayer = playerService.find(game.getVisitor().getPlayer().getId());
         game.getVisitor().setPlayer(visitorPlayer);
     }
 

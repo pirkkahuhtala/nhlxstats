@@ -1,13 +1,18 @@
 package com.mediatuotantoph.nhlxstats.player.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.mediatuotantoph.nhlxstats.common.Model;
+
 /**
  * Class for player which contain information about player profile.
  * 
  * @author Pirkka Huhtala
  *
  */
-public class Player {
-    private Integer id;
+@Document
+public class Player extends Model {
+    
     private String name;
 
     public Player() {
@@ -18,13 +23,9 @@ public class Player {
         this(null, name);
     }
 
-    public Player(Integer id, String name) {
-        this.id = id;
+    public Player(String id, String name) {
+        super(id);
         this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getName() {
