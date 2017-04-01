@@ -1,10 +1,7 @@
 package com.mediatuotantoph.nhlxstats.game.interfaces;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,19 +16,27 @@ import com.mediatuotantoph.nhlxstats.game.application.GameResource;
  *
  */
 @RestController
+@RequestMapping(value = "games", produces = MediaType.APPLICATION_JSON_VALUE)
 public class GameController {
 
     @Autowired
     private GameResource gameResource;
 
-    @RequestMapping("/games")
-    public Collection<GameDTO> findAll() {
-        return Collections.emptyList();
+    @RequestMapping(method = RequestMethod.POST)
+    public GameDTO add(GameDTO game) {
+        gameResource.add(game);
+        return game;
     }
 
-    @RequestMapping(value = "/games/{player}", method = RequestMethod.GET)
-    public Collection<GameDTO> findByPlayerId(@PathVariable("player") String playerId) {
-        return gameResource.findByPlayerId(playerId);
+    @RequestMapping(method = RequestMethod.PUT)
+    public GameDTO update(GameDTO game) {
+        gameResource.update(game);
+        return game;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void delete(GameDTO game) {
+        gameResource.delete(game);
     }
 
 }
