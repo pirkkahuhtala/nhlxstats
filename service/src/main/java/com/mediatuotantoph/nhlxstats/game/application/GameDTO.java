@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.game.application;
 
 import java.util.Date;
 
-import com.mediatuotantoph.nhlxstats.common.ModelDTO;
+import com.mediatuotantoph.nhlxstats.common.application.ModelDTO;
 
 /**
  * Class for game data transfer object.

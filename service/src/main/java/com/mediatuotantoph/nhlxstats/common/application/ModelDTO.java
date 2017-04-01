@@ -1,4 +1,4 @@
-package com.mediatuotantoph.nhlxstats.common;
+package com.mediatuotantoph.nhlxstats.common.application;
 
 /**
  * Base class for DTO

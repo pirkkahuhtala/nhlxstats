@@ -1,4 +1,4 @@
-package com.mediatuotantoph.nhlxstats.common;
+package com.mediatuotantoph.nhlxstats.common.domain;
 
 /**
  * Class for business logic exceptions

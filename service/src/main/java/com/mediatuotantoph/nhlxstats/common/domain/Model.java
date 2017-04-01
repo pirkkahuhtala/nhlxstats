@@ -1,4 +1,4 @@
-package com.mediatuotantoph.nhlxstats.common;
+package com.mediatuotantoph.nhlxstats.common.domain;
 
 import org.springframework.data.annotation.Id;
 

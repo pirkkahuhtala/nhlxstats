@@ -1,6 +1,6 @@
 package com.mediatuotantoph.nhlxstats.player.application;
 
-import com.mediatuotantoph.nhlxstats.common.ModelDTO;
+import com.mediatuotantoph.nhlxstats.common.application.ModelDTO;
 
 /**
  * Class for player data transfer object.

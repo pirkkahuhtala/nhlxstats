@@ -8,5 +8,5 @@ This project was made 50% just for fun & experimenting new software development 
 * Spring Boot
 * Dozer
 * MongoDB
-
+ 
 29.3.2017 - Created basic multi module structure. Decided to try out Spring Boot. I've been working with standardized JavaEE most of my career.

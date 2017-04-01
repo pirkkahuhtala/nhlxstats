@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.player.domain.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.common.Model;
+import com.mediatuotantoph.nhlxstats.common.domain.Model;
 
 /**
  * Class for player which contain information about player profile.

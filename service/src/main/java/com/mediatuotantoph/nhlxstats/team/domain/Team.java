@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.team.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.common.Model;
+import com.mediatuotantoph.nhlxstats.common.domain.Model;
 
 /**
  * Class for team information.

@@ -1,11 +1,10 @@
 package com.mediatuotantoph.nhlxstats.game.interfaces;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
+import com.mediatuotantoph.nhlxstats.core.RestResource;
 import com.mediatuotantoph.nhlxstats.game.application.GameDTO;
 import com.mediatuotantoph.nhlxstats.game.application.GameResource;
 
@@ -15,8 +14,8 @@ import com.mediatuotantoph.nhlxstats.game.application.GameResource;
  * @author Pirkka Huhtala
  *
  */
-@RestController
-@RequestMapping(value = "games", produces = MediaType.APPLICATION_JSON_VALUE)
+@RestResource
+@RequestMapping(value = "games")
 public class GameController {
 
     @Autowired

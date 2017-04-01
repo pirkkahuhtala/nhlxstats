@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.common.Model;
+import com.mediatuotantoph.nhlxstats.common.domain.Model;
 
 /**
  * Class for game which assembles info about the game opponents, score etc.
