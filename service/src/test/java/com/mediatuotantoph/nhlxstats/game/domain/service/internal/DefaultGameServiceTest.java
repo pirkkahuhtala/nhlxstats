@@ -11,11 +11,11 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
-import com.mediatuotantoph.nhlxstats.game.domain.model.GameRepository;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Score;
 import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
+import com.mediatuotantoph.nhlxstats.game.domain.repository.GameRepository;
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
-import com.mediatuotantoph.nhlxstats.team.domain.Team;
+import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultGameServiceTest {

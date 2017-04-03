@@ -3,7 +3,7 @@ package com.mediatuotantoph.nhlxstats.game.domain.model;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
-import com.mediatuotantoph.nhlxstats.team.domain.Team;
+import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
 
 /**
  * Value object for side in game.

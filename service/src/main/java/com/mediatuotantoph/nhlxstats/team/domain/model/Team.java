@@ -1,4 +1,4 @@
-package com.mediatuotantoph.nhlxstats.team.domain;
+package com.mediatuotantoph.nhlxstats.team.domain.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

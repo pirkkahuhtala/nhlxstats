@@ -13,10 +13,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
+import com.mediatuotantoph.nhlxstats.game.domain.repository.GameRepository;
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
-import com.mediatuotantoph.nhlxstats.player.domain.model.PlayerRepository;
-import com.mediatuotantoph.nhlxstats.team.domain.Team;
-import com.mediatuotantoph.nhlxstats.team.domain.TeamRepository;
+import com.mediatuotantoph.nhlxstats.player.domain.repository.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
+import com.mediatuotantoph.nhlxstats.team.domain.repository.TeamRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { MongoConfigForTest.class })

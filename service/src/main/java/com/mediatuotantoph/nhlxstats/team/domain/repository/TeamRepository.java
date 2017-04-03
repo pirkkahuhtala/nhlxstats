@@ -1,6 +1,8 @@
-package com.mediatuotantoph.nhlxstats.team.domain;
+package com.mediatuotantoph.nhlxstats.team.domain.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
 
 /**
  * Interface for team repository.

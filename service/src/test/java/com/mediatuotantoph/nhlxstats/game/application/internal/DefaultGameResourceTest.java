@@ -22,7 +22,7 @@ import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
 import com.mediatuotantoph.nhlxstats.game.domain.service.GameService;
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
 import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
-import com.mediatuotantoph.nhlxstats.team.domain.Team;
+import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultGameResourceTest {

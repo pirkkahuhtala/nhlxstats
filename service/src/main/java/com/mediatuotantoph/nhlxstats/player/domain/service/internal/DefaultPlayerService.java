@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
-import com.mediatuotantoph.nhlxstats.player.domain.model.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.player.domain.repository.PlayerRepository;
 import com.mediatuotantoph.nhlxstats.player.domain.service.PlayerService;
 
 /**

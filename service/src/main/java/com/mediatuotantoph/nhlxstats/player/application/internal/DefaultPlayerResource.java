@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.player.application.PlayerDTO;
 import com.mediatuotantoph.nhlxstats.player.application.PlayerResource;
-import com.mediatuotantoph.nhlxstats.player.domain.model.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.player.domain.repository.PlayerRepository;
 
 /**
  * 
