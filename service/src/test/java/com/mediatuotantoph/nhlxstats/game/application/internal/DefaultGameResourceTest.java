@@ -40,9 +40,9 @@ public class DefaultGameResourceTest {
     public void testAdd() throws Exception {
         
         Player homePlayer = new Player("1", "Player 1");
-        Team homeTeam = new Team("1", "Toronto Maple Leafs");
-        Player visitorPlayer = new Player("2", "Player 2");
-        Team visitorTeam = new Team("2", "Chicago Blackhawks");
+        Team homeTeam = new Team("2", "Toronto Maple Leafs");
+        Player visitorPlayer = new Player("3", "Player 2");
+        Team visitorTeam = new Team("4", "Chicago Blackhawks");
         Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
         
@@ -68,6 +68,9 @@ public class DefaultGameResourceTest {
         
         gameResource.add(gameDTO);
         
+        verify(mapper).map(gameDTO, Game.class);
+        verify(playerService).find("1");
+        verify(playerService).find("3");
         verify(gameService).add(game);
         verify(mapper).map(newGameDTO, gameDTO);
         
@@ -77,9 +80,9 @@ public class DefaultGameResourceTest {
     public void testUpdate() throws Exception {
 
         Player homePlayer = new Player("1", "Player 1");
-        Team homeTeam = new Team("1", "Toronto Maple Leafs");
-        Player visitorPlayer = new Player("2", "Player 2");
-        Team visitorTeam = new Team("2", "Chicago Blackhawks");
+        Team homeTeam = new Team("2", "Toronto Maple Leafs");
+        Player visitorPlayer = new Player("3", "Player 2");
+        Team visitorTeam = new Team("4", "Chicago Blackhawks");
         Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
         
@@ -105,6 +108,9 @@ public class DefaultGameResourceTest {
         
         gameResource.update(gameDTO);
         
+        verify(mapper).map(gameDTO, Game.class);
+        verify(playerService).find("1");
+        verify(playerService).find("3");
         verify(gameService).update(game);
         verify(mapper).map(newGameDTO, gameDTO);
         
@@ -114,9 +120,9 @@ public class DefaultGameResourceTest {
     public void testDelete() throws Exception {
         
         Player homePlayer = new Player("1", "Player 1");
-        Team homeTeam = new Team("1", "Toronto Maple Leafs");
-        Player visitorPlayer = new Player("2", "Player 2");
-        Team visitorTeam = new Team("2", "Chicago Blackhawks");
+        Team homeTeam = new Team("2", "Toronto Maple Leafs");
+        Player visitorPlayer = new Player("3", "Player 2");
+        Team visitorTeam = new Team("4", "Chicago Blackhawks");
         Game game = new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
                 new Side(visitorPlayer, visitorTeam, new Score()));
         
@@ -140,6 +146,9 @@ public class DefaultGameResourceTest {
         
         gameResource.delete(gameDTO);
         
+        verify(mapper).map(gameDTO, Game.class);
+        verify(playerService).find("1");
+        verify(playerService).find("3");
         verify(gameService).delete(game);
         
     }
@@ -152,6 +161,7 @@ public class DefaultGameResourceTest {
         
         gameResource.findByPlayerId("1");
         
+        verify(playerService).find("1");
         verify(gameService).find(player);
         
     }
