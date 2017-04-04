@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.mediatuotantoph.nhlxstats.game.application.GameDTO;
-import com.mediatuotantoph.nhlxstats.game.application.SideDTO;
-import com.mediatuotantoph.nhlxstats.game.domain.model.Game;
-import com.mediatuotantoph.nhlxstats.game.domain.model.Score;
-import com.mediatuotantoph.nhlxstats.game.domain.model.Side;
-import com.mediatuotantoph.nhlxstats.player.domain.model.Player;
-import com.mediatuotantoph.nhlxstats.team.domain.model.Team;
+import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
+import com.mediatuotantoph.nhlxstats.application.game.SideDTO;
+import com.mediatuotantoph.nhlxstats.domain.game.Game;
+import com.mediatuotantoph.nhlxstats.domain.game.Score;
+import com.mediatuotantoph.nhlxstats.domain.game.Side;
+import com.mediatuotantoph.nhlxstats.domain.player.Player;
+import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 /**
  * 
