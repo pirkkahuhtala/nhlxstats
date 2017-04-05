@@ -11,7 +11,7 @@ import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
 import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.application.game.StatsDTO;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
-import com.mediatuotantoph.nhlxstats.domain.game.GameInserter;
+import com.mediatuotantoph.nhlxstats.domain.game.Games;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
 import com.mediatuotantoph.nhlxstats.domain.game.ScoreFactory;
@@ -26,12 +26,12 @@ import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
  *
  */
 @Service
-public class DefaultGameService implements GameService {
+public class GameServiceImpl implements GameService {
 
     @Autowired
     private Mapper mapper;
     @Autowired
-    private GameInserter gameInserter;
+    private Games gameInserter;
     @Autowired
     private ScoreFactory scoreFactory;
     @Autowired

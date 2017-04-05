@@ -18,7 +18,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  *
  */
 @Component
-public class DefaultGameFactory implements GameFactory {
+public class GameFactoryImpl implements GameFactory {
 
     @Override
     public Game create(Date date, Player playerHome, Player playerVisitor, Team teamHome, Team teamVisitor, Score score) {

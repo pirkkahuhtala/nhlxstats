@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Pirkka Huhtala
  *
  */
-public interface GameInserter {
+public interface Games {
 
     /**
      * Allows to insert game stat

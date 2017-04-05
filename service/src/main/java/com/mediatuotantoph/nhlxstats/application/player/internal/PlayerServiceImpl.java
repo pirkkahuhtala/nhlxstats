@@ -16,7 +16,7 @@ import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
  *
  */
 @Service
-public class DefaultPlayerService implements PlayerService {
+public class PlayerServiceImpl implements PlayerService {
 
     @Autowired
     private Mapper mapper;
