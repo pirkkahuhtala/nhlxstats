@@ -19,7 +19,6 @@ import com.mediatuotantoph.nhlxstats.application.game.internal.GameServiceImplTe
 import com.mediatuotantoph.nhlxstats.configuration.Dozer;
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
 import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
