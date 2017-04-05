@@ -36,9 +36,17 @@ public class DefaultGameInserter implements GameInserter {
     @Override
     public Game insert(Date date, String playerHome, String playerVisitor, String teamHome, String teamVisitor,
             Score score) {
-
+        
         Player player1 = playerRepository.findByName(playerHome);
+        if (player1 == null) {
+            player1 = new Player(playerHome);
+            playerRepository.insert(player1);
+        }
         Player player2 = playerRepository.findByName(playerVisitor);
+        if (player2 == null) {
+            player2 = new Player(playerVisitor);
+            playerRepository.insert(player2);
+        }
         Team team1 = teamRepository.findOne(teamHome);
         Team team2 = teamRepository.findOne(teamVisitor);
         Game game = gameFactory.create(date, player1, player2, team1, team2, score);

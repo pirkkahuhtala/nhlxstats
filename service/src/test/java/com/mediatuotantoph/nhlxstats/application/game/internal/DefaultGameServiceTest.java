@@ -25,9 +25,9 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
 import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, MongoConfigForTest.class, Dozer.class})
+@ContextConfiguration(classes = { AppConfig.class, MongoConfigForTest.class, Dozer.class })
 public class DefaultGameServiceTest {
-    
+
     @Autowired
     private GameRepository gameRepository;
     @Autowired
@@ -39,39 +39,35 @@ public class DefaultGameServiceTest {
     @ComponentScan("com.mediatuotantoph.nhlxstats")
     public static class AppConfig {
     }
-    
+
     @Autowired
     private GameService gameService;
 
     @Test
-        public void testInsert() throws Exception {
-            
-            gameRepository.deleteAll();
-            playerRepository.deleteAll();
-            teamRepository.deleteAll();
-    
-            Player homePlayer = new Player("Player 1");
-            playerRepository.insert(homePlayer);
-            Team homeTeam = new Team("Team 1");
-            teamRepository.insert(homeTeam);
-            Player visitorPlayer = new Player("Player 2");
-            playerRepository.insert(visitorPlayer);
-            Team visitorTeam = new Team("Team 2");
-            teamRepository.insert(visitorTeam);
-            
-            GameDTO gameDTO = new GameDTO();
-            gameDTO.setDate(new Date());
-            gameDTO.setPlayerHomeName("Player 1");
-            gameDTO.setPlayerVisitorName("Player 2");
-            gameDTO.setTeamHomeId(homeTeam.getId());
-            gameDTO.setTeamVisitorId(visitorTeam.getId());
-            gameDTO.setStatsHome(new StatsDTO());
-            gameDTO.setStatsVisitor(new StatsDTO());
-            
-            gameService.insert(gameDTO);
-            
-            assertNotNull(gameDTO.getId());
-            
-        }
+    public void testInsert() throws Exception {
+
+        gameRepository.deleteAll();
+        playerRepository.deleteAll();
+        teamRepository.deleteAll();
+
+        Team homeTeam = new Team("Team 1");
+        teamRepository.insert(homeTeam);
+        Team visitorTeam = new Team("Team 2");
+        teamRepository.insert(visitorTeam);
+
+        GameDTO gameDTO = new GameDTO();
+        gameDTO.setDate(new Date());
+        gameDTO.setPlayerHomeName("Player 1");
+        gameDTO.setPlayerVisitorName("Player 2");
+        gameDTO.setTeamHomeId(homeTeam.getId());
+        gameDTO.setTeamVisitorId(visitorTeam.getId());
+        gameDTO.setStatsHome(new StatsDTO());
+        gameDTO.setStatsVisitor(new StatsDTO());
+
+        gameService.insert(gameDTO);
+
+        assertNotNull(gameDTO.getId());
+
+    }
 
 }
