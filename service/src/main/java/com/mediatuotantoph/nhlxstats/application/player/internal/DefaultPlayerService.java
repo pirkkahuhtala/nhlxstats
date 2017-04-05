@@ -5,18 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.application.player.PlayerDTO;
-import com.mediatuotantoph.nhlxstats.application.player.PlayerResource;
+import com.mediatuotantoph.nhlxstats.application.player.PlayerService;
 import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
 
 /**
  * 
- * Class for player resoure implementation
+ * Class for player service implementation
  * 
  * @author Pirkka Huhtala
  *
  */
 @Service
-public class DefaultPlayerResource implements PlayerResource {
+public class DefaultPlayerService implements PlayerService {
 
     @Autowired
     private Mapper mapper;

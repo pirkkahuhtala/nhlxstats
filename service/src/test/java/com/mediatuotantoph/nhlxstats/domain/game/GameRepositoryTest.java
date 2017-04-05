@@ -1,7 +1,6 @@
 package com.mediatuotantoph.nhlxstats.domain.game;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
@@ -13,10 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
-import com.mediatuotantoph.nhlxstats.domain.game.Game;
-import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
-import com.mediatuotantoph.nhlxstats.domain.game.Score;
-import com.mediatuotantoph.nhlxstats.domain.game.Side;
 import com.mediatuotantoph.nhlxstats.domain.player.Player;
 import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
@@ -51,17 +46,14 @@ public class GameRepositoryTest {
         Team visitorTeam = new Team("Team 2");
         teamRepository.insert(visitorTeam);
 
-        gameRepository.insert(new Game(new Date(), new Side(homePlayer, homeTeam, new Score()),
-                new Side(visitorPlayer, visitorTeam, new Score())));
+        gameRepository.insert(new Game(new Date(), new Opponent(homePlayer, homeTeam),
+                new Opponent(visitorPlayer, visitorTeam), new Score(new Stats(), new Stats())));
 
     }
 
     @Test
-    public void testFindByHomePlayerId() throws Exception {
-        
-        assertFalse(gameRepository.findByHomePlayerId(homePlayer.getId()).isEmpty());
-        assertTrue(gameRepository.findByHomePlayerId(visitorPlayer.getId()).isEmpty());
-        
-    }
+        public void testFindByHomePlayerNamePlayerId() throws Exception {
+            assertFalse(gameRepository.findByHomePlayerId(homePlayer.getId()).isEmpty());
+        }
 
 }

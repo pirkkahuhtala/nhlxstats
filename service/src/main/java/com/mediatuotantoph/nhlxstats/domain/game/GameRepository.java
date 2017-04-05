@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author Pirkka Huhtala
  *
  */
-@Repository
+@Repository 
 public interface GameRepository extends MongoRepository<Game, String> {
 
     public Collection<Game> findByHomePlayerId(String playerId);

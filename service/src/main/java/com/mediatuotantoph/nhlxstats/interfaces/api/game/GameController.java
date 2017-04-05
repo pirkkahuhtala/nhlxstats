@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
-import com.mediatuotantoph.nhlxstats.application.game.GameResource;
+import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.interfaces.api.RestResource;
 
 /**
@@ -19,23 +19,12 @@ import com.mediatuotantoph.nhlxstats.interfaces.api.RestResource;
 public class GameController {
 
     @Autowired
-    private GameResource gameResource;
+    private GameService gameService;
 
     @RequestMapping(method = RequestMethod.POST)
     public GameDTO add(GameDTO game) {
-        gameResource.add(game);
+        gameService.insert(game);
         return game;
-    }
-
-    @RequestMapping(method = RequestMethod.PUT)
-    public GameDTO update(GameDTO game) {
-        gameResource.update(game);
-        return game;
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(GameDTO game) {
-        gameResource.delete(game);
     }
 
 }

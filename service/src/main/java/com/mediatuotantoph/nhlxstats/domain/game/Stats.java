@@ -1,12 +1,13 @@
-package com.mediatuotantoph.nhlxstats.application.game;
+package com.mediatuotantoph.nhlxstats.domain.game;
 
 /**
- * Class for score data transfer object.
+ * Class for stats value object
  * 
  * @author Pirkka Huhtala
  *
  */
-public class ScoreDTO {
+public class Stats {
+
     private int goals;
     private int shots;
     private int hits;
@@ -19,8 +20,8 @@ public class ScoreDTO {
     private int breakaways;
     private int shorthandedGoals;
     
-    public ScoreDTO() {
-        // for mapping purposes
+    public Stats() {
+        // For mapping purposes
     }
 
     public int getGoals() {
@@ -110,4 +111,5 @@ public class ScoreDTO {
     public void setShorthandedGoals(int shorthandedGoals) {
         this.shorthandedGoals = shorthandedGoals;
     }
+    
 }

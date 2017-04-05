@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mediatuotantoph.nhlxstats.domain.Model;
+import com.mediatuotantoph.nhlxstats.domain.player.Player;
+import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 /**
  * Class for game which assembles info about the game opponents, score etc.
@@ -16,35 +18,64 @@ import com.mediatuotantoph.nhlxstats.domain.Model;
 public class Game extends Model {
     
     private Date date;
-    private Side home;
-    private Side visitor;
-
+    private Date editTime;
+    private Score score;
+    private Opponent home;
+    private Opponent visitor;
+    
     public Game() {
         // for mapping purposes
     }
-    
-    public Game(Date date, Side home, Side visitor) {
-        this.date = date;
+
+    public Game(Date date, Opponent home, Opponent visitor, Score score) {
         this.home = home;
         this.visitor = visitor;
+        this.score = score;
     }
 
     public Date getDate() {
         return date;
     }
-
-    public Side getHome() {
-        if (home == null) {
-            home = new Side();
-        }
-        return home;
+    
+    public Player getPlayerHome() {
+        return home.getPlayer();
+    }
+    
+    public Team getTeamHome() {
+        return home.getTeam();
+    }
+    
+    public Player getPlayerVisitor() {
+        return visitor.getPlayer();
+    }
+    
+    public Team getTeamVisitor() {
+        return visitor.getTeam();
     }
 
-    public Side getVisitor() {
-        if (visitor == null) {
-            visitor = new Side();
-        }
-        return visitor;
+    public Stats getStatsHome() {
+        return score.getHomeStats();
+    }
+
+    public Stats getStatsVisitor() {
+        return score.getVisitor();
+    }
+
+    /**
+     * Operation to edit game
+     * @param home New home opponent
+     * @param visitor New visitor opponent
+     * @param score New game score
+     */
+    public void edit(Opponent home, Opponent visitor, Score score) {
+        this.home = home;
+        this.visitor = visitor;
+        this.score = score;
+        this.editTime = new Date();
+    }
+
+    public Date getEditTime() {
+        return editTime;
     }
     
 }

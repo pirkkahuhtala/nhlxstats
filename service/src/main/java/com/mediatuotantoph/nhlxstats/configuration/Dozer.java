@@ -5,8 +5,8 @@ import org.dozer.loader.api.BeanMappingBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.mediatuotantoph.nhlxstats.application.game.SideDTO;
-import com.mediatuotantoph.nhlxstats.domain.game.Side;
+import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
+import com.mediatuotantoph.nhlxstats.domain.game.Game;
 
 /**
  * Class for Dozer mapper configuration
@@ -23,8 +23,10 @@ public class Dozer {
         mapper.addMapping(new BeanMappingBuilder() {
             @Override
             protected void configure() {
-                mapping(SideDTO.class, Side.class).fields("playerId", field("player.id").accessible()).fields("teamId",
-                        field("team.id").accessible());
+                mapping(GameDTO.class, Game.class).fields("playerHomeName", field("home.player.name").accessible())
+                        .fields("playerVisitorName", field("visitor.player.name").accessible())
+                        .fields("statsHome", field("score.home").accessible())
+                        .fields("statsVisitor", field("score.visitor").accessible());
             }
         });
         return mapper;

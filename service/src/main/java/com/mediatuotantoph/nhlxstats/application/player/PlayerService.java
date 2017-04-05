@@ -5,7 +5,7 @@ package com.mediatuotantoph.nhlxstats.application.player;
  * @author Pirkka Huhtala
  *
  */
-public interface PlayerResource {
+public interface PlayerService {
 
     public PlayerDTO find(String id);
     

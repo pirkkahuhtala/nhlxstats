@@ -13,9 +13,14 @@ import com.mediatuotantoph.nhlxstats.application.ModelDTO;
 public class GameDTO extends ModelDTO {
 
     private Date date;
-    private SideDTO home;
-    private SideDTO visitor;
-    
+    private Date editDate;
+    private String playerHomeName;
+    private String playerVisitorName;
+    private String teamHomeId;
+    private String teamVisitorId;
+    private StatsDTO statsHome;
+    private StatsDTO statsVisitor;
+
     public Date getDate() {
         return date;
     }
@@ -24,25 +29,60 @@ public class GameDTO extends ModelDTO {
         this.date = date;
     }
 
-    public SideDTO getHome() {
-        if (home == null) {
-            home = new SideDTO();
-        }
-        return home;
+    public Date getEditDate() {
+        return editDate;
     }
 
-    public void setHome(SideDTO home) {
-        this.home = home;
+    public void setEditDate(Date editDate) {
+        this.editDate = editDate;
     }
 
-    public SideDTO getVisitor() {
-        return visitor;
+    public String getTeamHomeId() {
+        return teamHomeId;
     }
 
-    public void setVisitor(SideDTO visitor) {
-        if (visitor == null) {
-            visitor = new SideDTO();
-        }
-        this.visitor = visitor;
+    public void setTeamHomeId(String teamHomeId) {
+        this.teamHomeId = teamHomeId;
     }
+
+    public String getTeamVisitorId() {
+        return teamVisitorId;
+    }
+
+    public void setTeamVisitorId(String teamVisitorId) {
+        this.teamVisitorId = teamVisitorId;
+    }
+
+    public StatsDTO getStatsHome() {
+        return statsHome;
+    }
+
+    public void setStatsHome(StatsDTO statsHome) {
+        this.statsHome = statsHome;
+    }
+
+    public StatsDTO getStatsVisitor() {
+        return statsVisitor;
+    }
+
+    public void setStatsVisitor(StatsDTO statsVisitor) {
+        this.statsVisitor = statsVisitor;
+    }
+
+    public String getPlayerHomeName() {
+        return playerHomeName;
+    }
+
+    public void setPlayerHomeName(String playerHomeName) {
+        this.playerHomeName = playerHomeName;
+    }
+
+    public String getPlayerVisitorName() {
+        return playerVisitorName;
+    }
+
+    public void setPlayerVisitorName(String playerVisitorName) {
+        this.playerVisitorName = playerVisitorName;
+    }
+
 }

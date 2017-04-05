@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
-import com.mediatuotantoph.nhlxstats.application.game.GameResource;
+import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.application.player.PlayerDTO;
-import com.mediatuotantoph.nhlxstats.application.player.PlayerResource;
+import com.mediatuotantoph.nhlxstats.application.player.PlayerService;
 import com.mediatuotantoph.nhlxstats.interfaces.api.RestResource;
 
 /**
@@ -24,18 +24,18 @@ import com.mediatuotantoph.nhlxstats.interfaces.api.RestResource;
 public class PlayerController {
 
     @Autowired
-    private PlayerResource playerResource;
+    private PlayerService playerResource;
     @Autowired
-    private GameResource gameResource;
+    private GameService gameService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public PlayerDTO find(@PathVariable String id) {
         return playerResource.find(id);
     }
 
-    @RequestMapping(value = "/{playerId}/games", method = RequestMethod.GET)
-    public Collection<GameDTO> findByPlayerId(@PathVariable String playerId) {
-        return gameResource.findByPlayerId(playerId);
+    @RequestMapping(value = "/{name}/games", method = RequestMethod.GET)
+    public Collection<GameDTO> findByPlayerId(@PathVariable String name) {
+        return gameService.findByPlayerName(name);
     }
 
 }
