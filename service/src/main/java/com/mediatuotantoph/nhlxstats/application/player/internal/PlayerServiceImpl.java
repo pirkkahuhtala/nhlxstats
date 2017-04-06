@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.application.player.PlayerDTO;
 import com.mediatuotantoph.nhlxstats.application.player.PlayerService;
-import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
 
 /**
  * 
@@ -21,7 +21,7 @@ public class PlayerServiceImpl implements PlayerService {
     @Autowired
     private Mapper mapper;
     @Autowired
-    private PlayerRepository playerRepository;
+    private NickRepository playerRepository;
 
     @Override
     public PlayerDTO find(String id) {

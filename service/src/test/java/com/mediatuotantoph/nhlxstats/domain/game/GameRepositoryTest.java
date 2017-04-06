@@ -12,8 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
-import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
@@ -24,11 +25,11 @@ public class GameRepositoryTest {
     @Autowired
     private GameRepository gameRepository;
     @Autowired
-    private PlayerRepository playerRepository;
+    private NickRepository playerRepository;
     @Autowired
     private TeamRepository teamRepository;
-    private Player visitorPlayer;
-    private Player homePlayer;
+    private Nick visitorPlayer;
+    private Nick homePlayer;
 
     @Before
     public void init() {
@@ -37,11 +38,11 @@ public class GameRepositoryTest {
         playerRepository.deleteAll();
         teamRepository.deleteAll();
 
-        homePlayer = new Player("Player 1");
+        homePlayer = new Nick("Player 1", Platform.PS);
         playerRepository.insert(homePlayer);
         Team homeTeam = new Team("Team 1");
         teamRepository.insert(homeTeam);
-        visitorPlayer = new Player("Player 2");
+        visitorPlayer = new Nick("Player 2", Platform.PS);
         playerRepository.insert(visitorPlayer);
         Team visitorTeam = new Team("Team 2");
         teamRepository.insert(visitorTeam);
@@ -52,8 +53,8 @@ public class GameRepositoryTest {
     }
 
     @Test
-        public void testFindByHomePlayerNamePlayerId() throws Exception {
-            assertFalse(gameRepository.findByHomePlayerId(homePlayer.getId()).isEmpty());
-        }
+    public void testFindByHomePlayerNamePlayerId() throws Exception {
+        assertFalse(gameRepository.findByHomePlayerId(homePlayer.getId()).isEmpty());
+    }
 
 }

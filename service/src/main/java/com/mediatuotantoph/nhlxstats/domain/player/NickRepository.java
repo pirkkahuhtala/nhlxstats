@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author Pirkka Huhtala
  *
  */
-public interface PlayerRepository extends MongoRepository<Player, String> {
+public interface NickRepository extends MongoRepository<Nick, String> {
 
-    public Player findByName(String playerHome);
+    public Nick findByName(String name);
 
 }

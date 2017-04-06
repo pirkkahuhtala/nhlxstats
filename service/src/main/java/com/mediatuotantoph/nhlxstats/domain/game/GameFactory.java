@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.domain.game;
 
 import java.util.Date;
 
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 /**
@@ -13,7 +13,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  */
 public interface GameFactory {
 
-    public Game create(Date date, Player playerHome, Player playerVisitor, Team teamHome, Team teamVisitor,
+    public Game create(Date date, Nick playerHome, Nick playerVisitor, Team teamHome, Team teamVisitor,
             Score score);
 
 }

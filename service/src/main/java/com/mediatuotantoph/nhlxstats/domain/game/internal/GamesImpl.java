@@ -5,13 +5,14 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.GameFactory;
-import com.mediatuotantoph.nhlxstats.domain.game.Games;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
+import com.mediatuotantoph.nhlxstats.domain.game.Games;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
-import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRegister;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
@@ -27,7 +28,7 @@ public class GamesImpl implements Games {
     @Autowired
     private GameRepository gameRepository;
     @Autowired
-    private PlayerRepository playerRepository;
+    private NickRegister nickRegister;
     @Autowired
     private TeamRepository teamRepository;
     @Autowired
@@ -35,20 +36,26 @@ public class GamesImpl implements Games {
 
     @Override
     public Game insert(Date date, String playerHome, String playerVisitor, String teamHome, String teamVisitor,
-            Score score) {
-        
-        Player player1 = playerRepository.findByName(playerHome);
+            Score score, GameVersion version) {
+        Nick player1 = nickRegister.find(playerHome);
         if (player1 == null) {
-            player1 = new Player(playerHome);
-            playerRepository.insert(player1);
+            nickRegister.register(playerHome, version.getPlatform());
         }
-        Player player2 = playerRepository.findByName(playerVisitor);
+        Nick player2 = nickRegister.find(playerVisitor);
         if (player2 == null) {
-            player2 = new Player(playerVisitor);
-            playerRepository.insert(player2);
+            nickRegister.register(playerVisitor, version.getPlatform());
+        }
+        if (!player1.playsWithSamePlatform(player2)) {
+            // TODO: Throw exception
         }
         Team team1 = teamRepository.findOne(teamHome);
+        if (!version.isTeamAllowed(team1)) {
+            // TODO: Throw exception
+        }
         Team team2 = teamRepository.findOne(teamVisitor);
+        if (!version.isTeamAllowed(team2)) {
+            // TODO: Throw exception
+        }
         Game game = gameFactory.create(date, player1, player2, team1, team2, score);
         gameRepository.insert(game);
 

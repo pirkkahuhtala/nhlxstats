@@ -2,6 +2,8 @@ package com.mediatuotantoph.nhlxstats.domain.game;
 
 import java.util.Date;
 
+import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
+
 /**
  * Interfaces for inserting game stats domain service
  * 
@@ -27,6 +29,6 @@ public interface Games {
      *            Game score
      */
     public Game insert(Date date, String playerHome, String playerVisitor, String teamHome, String teamVisitor,
-            Score score);
+            Score score, GameVersion release);
 
 }

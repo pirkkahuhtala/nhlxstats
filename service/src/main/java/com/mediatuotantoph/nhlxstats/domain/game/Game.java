@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mediatuotantoph.nhlxstats.domain.Model;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 /**
@@ -21,7 +21,7 @@ public class Game extends Model {
     private Date editTime;
     private Score score;
     private Opponent home;
-    private Opponent visitor;
+    private Opponent visitor;    
     
     public Game() {
         // for mapping purposes
@@ -37,16 +37,16 @@ public class Game extends Model {
         return date;
     }
     
-    public Player getPlayerHome() {
-        return home.getPlayer();
+    public Nick getPlayerHome() {
+        return home.getNick();
     }
     
     public Team getTeamHome() {
         return home.getTeam();
     }
     
-    public Player getPlayerVisitor() {
-        return visitor.getPlayer();
+    public Nick getPlayerVisitor() {
+        return visitor.getNick();
     }
     
     public Team getTeamVisitor() {

@@ -10,14 +10,15 @@ import org.springframework.stereotype.Service;
 import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
 import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.application.game.StatsDTO;
+import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.Games;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
 import com.mediatuotantoph.nhlxstats.domain.game.ScoreFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Stats;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
-import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
 
 /**
  * Class for game application service.
@@ -37,18 +38,18 @@ public class GameServiceImpl implements GameService {
     @Autowired
     private GameRepository gameRepository;
     @Autowired
-    private PlayerRepository playerRepository;
+    private NickRepository playerRepository;
 
     @Override
     public void insert(GameDTO gameDTO) {
         Game game = gameInserter.insert(gameDTO.getDate(), gameDTO.getPlayerHomeName(), gameDTO.getPlayerVisitorName(),
-                gameDTO.getTeamHomeId(), gameDTO.getTeamVisitorId(), getStats(gameDTO));
+                gameDTO.getTeamHomeId(), gameDTO.getTeamVisitorId(), getStats(gameDTO), new GameVersion());
         mapper.map(convertToGameDTO(game), gameDTO);
     }
 
     @Override
     public Collection<GameDTO> findByPlayerName(String name) {
-        Player player = playerRepository.findByName(name);
+        Nick player = playerRepository.findByName(name);
         return gameRepository.findByHomePlayerId(player.getId()).stream().map(game -> mapper.map(game, GameDTO.class))
                 .collect(Collectors.toList());
     }

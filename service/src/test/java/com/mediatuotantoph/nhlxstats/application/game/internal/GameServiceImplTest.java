@@ -19,7 +19,7 @@ import com.mediatuotantoph.nhlxstats.application.game.internal.GameServiceImplTe
 import com.mediatuotantoph.nhlxstats.configuration.Dozer;
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
-import com.mediatuotantoph.nhlxstats.domain.player.PlayerRepository;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
@@ -30,7 +30,7 @@ public class GameServiceImplTest {
     @Autowired
     private GameRepository gameRepository;
     @Autowired
-    private PlayerRepository playerRepository;
+    private NickRepository playerRepository;
     @Autowired
     private TeamRepository teamRepository;
 

@@ -8,7 +8,7 @@ import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.GameFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Opponent;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
-import com.mediatuotantoph.nhlxstats.domain.player.Player;
+import com.mediatuotantoph.nhlxstats.domain.player.Nick;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 /**
@@ -21,7 +21,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
 public class GameFactoryImpl implements GameFactory {
 
     @Override
-    public Game create(Date date, Player playerHome, Player playerVisitor, Team teamHome, Team teamVisitor, Score score) {
+    public Game create(Date date, Nick playerHome, Nick playerVisitor, Team teamHome, Team teamVisitor, Score score) {
         return new Game(date, new Opponent(playerHome, teamHome), new Opponent(playerVisitor, teamVisitor), score);
     }
 
