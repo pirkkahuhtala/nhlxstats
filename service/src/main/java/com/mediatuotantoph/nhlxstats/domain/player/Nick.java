@@ -16,6 +16,10 @@ public class Nick extends Model {
     
     private String name;
     private Platform platform;
+    
+    public Nick() {
+        // for mapping purposes
+    }
 
     public Nick(String name, Platform platform) {
         this.name = name;
