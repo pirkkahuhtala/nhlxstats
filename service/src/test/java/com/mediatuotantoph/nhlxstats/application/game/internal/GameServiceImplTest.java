@@ -58,8 +58,8 @@ public class GameServiceImplTest {
         gameDTO.setDate(new Date());
         gameDTO.setPlayerHomeName("Player 1");
         gameDTO.setPlayerVisitorName("Player 2");
-        gameDTO.setTeamHomeId(homeTeam.getId());
-        gameDTO.setTeamVisitorId(visitorTeam.getId());
+        gameDTO.setTeamHomeId(homeTeam.getId().value());
+        gameDTO.setTeamVisitorId(visitorTeam.getId().value());
         gameDTO.setStatsHome(new StatsDTO());
         gameDTO.setStatsVisitor(new StatsDTO());
 

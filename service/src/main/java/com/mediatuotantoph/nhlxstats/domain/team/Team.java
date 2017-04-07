@@ -11,24 +11,24 @@ import com.mediatuotantoph.nhlxstats.domain.Model;
  *
  */
 @Document
-public class Team extends Model {
-    
+public class Team extends Model<TeamId> {
+
     private String name;
-    
+
     public Team() {
         // For mapping purposes
     }
-    
-    public Team(String name) {
-        this(null, name);
-    }
 
-    public Team(String id, String name) {
-        super(id);
+    public Team(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    protected TeamId wrapId(String id) {
+        return new TeamId(id);
     }
 }

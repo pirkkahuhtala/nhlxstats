@@ -13,20 +13,20 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  */
 public class Opponent {
 
-    @DBRef
+    @DBRef(lazy=true)
     private Team team;
-    @DBRef
+    @DBRef(lazy=true)
     private Nick nick;
-    
+
     public Opponent() {
         // for mapping purposes
     }
 
-    public Opponent(Nick player, Team team) {
-        this.nick = player;
+    public Opponent(Nick nickId, Team team) {
+        this.nick = nickId;
         this.team = team;
     }
-    
+
     public Team getTeam() {
         return team;
     }

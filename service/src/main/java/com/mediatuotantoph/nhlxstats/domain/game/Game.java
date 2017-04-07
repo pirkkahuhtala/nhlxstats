@@ -15,7 +15,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  *
  */
 @Document
-public class Game extends Model {
+public class Game extends Model<GameId> {
     
     private Date date;
     private Date editTime;
@@ -76,6 +76,11 @@ public class Game extends Model {
 
     public Date getEditTime() {
         return editTime;
+    }
+
+    @Override
+    protected GameId wrapId(String id) {
+        return new GameId(id);
     }
     
 }

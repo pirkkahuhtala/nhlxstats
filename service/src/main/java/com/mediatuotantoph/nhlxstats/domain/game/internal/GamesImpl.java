@@ -1,11 +1,13 @@
 package com.mediatuotantoph.nhlxstats.domain.game.internal;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
+import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.GameFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
@@ -37,29 +39,25 @@ public class GamesImpl implements Games {
     @Override
     public Game insert(Date date, String playerHome, String playerVisitor, String teamHome, String teamVisitor,
             Score score, GameVersion version) {
-        Nick player1 = nickRegister.find(playerHome);
-        if (player1 == null) {
-            nickRegister.register(playerHome, version.getPlatform());
+        Nick nickHome = nickRegister.find(playerHome);
+        if (nickHome == null) {
+            nickHome = nickRegister.register(playerHome, Platform.PS);
         }
-        Nick player2 = nickRegister.find(playerVisitor);
-        if (player2 == null) {
-            nickRegister.register(playerVisitor, version.getPlatform());
-        }
-        if (!player1.playsWithSamePlatform(player2)) {
-            // TODO: Throw exception
+        Nick nickVisitor = nickRegister.find(playerVisitor);
+        if (nickVisitor == null) {
+            nickVisitor = nickRegister.register(playerVisitor, Platform.PS);
         }
         Team team1 = teamRepository.findOne(teamHome);
-        if (!version.isTeamAllowed(team1)) {
-            // TODO: Throw exception
-        }
         Team team2 = teamRepository.findOne(teamVisitor);
-        if (!version.isTeamAllowed(team2)) {
-            // TODO: Throw exception
-        }
-        Game game = gameFactory.create(date, player1, player2, team1, team2, score);
+        Game game = gameFactory.create(date, nickHome, nickVisitor, team1, team2, score);
         gameRepository.insert(game);
 
         return game;
+    }
+
+    @Override
+    public Collection<Game> find(Nick nick) {
+        return gameRepository.findByHomeNickId(nick.getId().value());
     }
 
 }

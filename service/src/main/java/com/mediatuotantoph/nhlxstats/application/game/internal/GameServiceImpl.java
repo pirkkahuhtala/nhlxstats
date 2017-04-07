@@ -13,12 +13,11 @@ import com.mediatuotantoph.nhlxstats.application.game.StatsDTO;
 import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.Games;
-import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
 import com.mediatuotantoph.nhlxstats.domain.game.ScoreFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Stats;
 import com.mediatuotantoph.nhlxstats.domain.player.Nick;
-import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
+import com.mediatuotantoph.nhlxstats.domain.player.NickRegister;
 
 /**
  * Class for game application service.
@@ -32,26 +31,23 @@ public class GameServiceImpl implements GameService {
     @Autowired
     private Mapper mapper;
     @Autowired
-    private Games gameInserter;
+    private Games games;
     @Autowired
     private ScoreFactory scoreFactory;
     @Autowired
-    private GameRepository gameRepository;
-    @Autowired
-    private NickRepository playerRepository;
+    private NickRegister nickRegister;
 
     @Override
     public void insert(GameDTO gameDTO) {
-        Game game = gameInserter.insert(gameDTO.getDate(), gameDTO.getPlayerHomeName(), gameDTO.getPlayerVisitorName(),
+        Game game = games.insert(gameDTO.getDate(), gameDTO.getPlayerHomeName(), gameDTO.getPlayerVisitorName(),
                 gameDTO.getTeamHomeId(), gameDTO.getTeamVisitorId(), getStats(gameDTO), new GameVersion());
         mapper.map(convertToGameDTO(game), gameDTO);
     }
 
     @Override
-    public Collection<GameDTO> findByPlayerName(String name) {
-        Nick player = playerRepository.findByName(name);
-        return gameRepository.findByHomePlayerId(player.getId()).stream().map(game -> mapper.map(game, GameDTO.class))
-                .collect(Collectors.toList());
+    public Collection<GameDTO> findByPlayerName(String nickname) {
+        Nick nick = nickRegister.find(nickname);
+        return games.find(nick).stream().map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
     }
 
     private Score getStats(GameDTO gameDTO) {

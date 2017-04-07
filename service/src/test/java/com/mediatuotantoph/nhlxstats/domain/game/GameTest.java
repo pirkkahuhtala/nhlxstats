@@ -19,18 +19,17 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        game = new Game(new Date(), new Opponent(new Nick("Player 1", Platform.PS), new Team("Toronto Maple Leafs")),
-                new Opponent(new Nick("Player 2", Platform.PS), new Team("Chigago Black Hawks")),
-                new Score(new Stats(), new Stats()));
+        game = new Game(new Date(), new Opponent(new Nick("1", Platform.PS), new Team("1")),
+                new Opponent(new Nick("2", Platform.PS), new Team("2")), new Score(new Stats(), new Stats()));
     }
 
     @Test
     public void testEdit() {
         assertNull(game.getEditTime());
-        Nick newPlayer1 = new Nick("Player 2", Platform.PS);
-        Nick newPlayer2 = new Nick("Player 4", Platform.PS);
-        Team newTeam1 = new Team("Anaheim Ducks");
-        Team newTeam2 = new Team("San Jose Sharks");
+        Nick newPlayer1 = new Nick("3", Platform.PS);
+        Nick newPlayer2 = new Nick("4", Platform.PS);
+        Team newTeam1 = new Team("3");
+        Team newTeam2 = new Team("4");
         game.edit(new Opponent(newPlayer1, newTeam1), new Opponent(newPlayer2, newTeam2),
                 new Score(new Stats(), new Stats()));
         assertEquals(newPlayer1, game.getPlayerHome());

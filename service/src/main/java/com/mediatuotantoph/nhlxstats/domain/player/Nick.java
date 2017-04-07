@@ -12,7 +12,7 @@ import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
  *
  */
 @Document(collection = "nicks")
-public class Nick extends Model {
+public class Nick extends Model<NickId> {
     
     private String name;
     private Platform platform;
@@ -33,4 +33,10 @@ public class Nick extends Model {
     public String getName() {
         return name;
     }
+
+    @Override
+    protected NickId wrapId(String id) {
+        return new NickId(id);
+    }
+   
 }

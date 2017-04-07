@@ -1,9 +1,8 @@
 package com.mediatuotantoph.nhlxstats.domain.franchise;
 
-import com.mediatuotantoph.nhlxstats.domain.Model;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
-public class GameVersion extends Model {
+public class GameVersion  {
 
     private Platform platform;
     private Release release;
