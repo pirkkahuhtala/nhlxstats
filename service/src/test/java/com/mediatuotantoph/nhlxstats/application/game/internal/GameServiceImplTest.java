@@ -135,7 +135,7 @@ public class GameServiceImplTest {
         GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
         gameService.insert(gameDTO);
 
-        gameService.delete(gameDTO);
+        gameService.delete(gameDTO.getId());
 
         GameDTO foundDTO = gameService.find(gameDTO.getId());
 

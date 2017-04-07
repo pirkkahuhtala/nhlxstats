@@ -81,8 +81,8 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void delete(GameDTO gameDTO) {
-        Game game = gameRepository.findOne(gameDTO.getId());
+    public void delete(String id) {
+        Game game = gameRepository.findOne(id);
         if (game == null) {
             // throw exception
         }
