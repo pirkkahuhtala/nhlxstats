@@ -10,8 +10,6 @@ import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
  */
 public interface NickRegister {
 
-    public Nick find(String name);
-
     public Nick find(NickId nickId);
 
     public Nick register(String name, Platform platform);

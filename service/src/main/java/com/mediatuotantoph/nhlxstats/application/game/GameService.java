@@ -9,6 +9,8 @@ import java.util.Collection;
  *
  */
 public interface GameService {
+    
+    public GameDTO find(String id);
 
     public void insert(GameDTO gameDTO);
     

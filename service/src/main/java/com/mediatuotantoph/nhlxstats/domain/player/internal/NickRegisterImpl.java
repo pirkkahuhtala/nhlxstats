@@ -22,11 +22,6 @@ public class NickRegisterImpl implements NickRegister {
     private NickRepository nickRepository;
 
     @Override
-    public Nick find(String name) {
-        return nickRepository.findOne(name);
-    }
-
-    @Override
     public Nick find(NickId nickId) {
         return nickRepository.findOne(nickId.value());
     }
@@ -44,6 +39,10 @@ public class NickRegisterImpl implements NickRegister {
             nick = nickRepository.insert(new Nick(name, platform));
         }
         return nick;
+    }
+
+    private Nick find(String name) {
+        return nickRepository.findOne(name);
     }
 
 }

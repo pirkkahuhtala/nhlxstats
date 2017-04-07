@@ -1,6 +1,7 @@
 package com.mediatuotantoph.nhlxstats.application.game.internal;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.dozer.Mapper;
@@ -84,6 +85,12 @@ public class GameServiceImpl implements GameService {
         Nick nick = nickRegister.find(new NickId(nickId));
         return gameRepository.findByHomeNickId(nick.getId().value()).stream()
                 .map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public GameDTO find(String id) {
+        Game game = Optional.ofNullable(gameRepository.findOne(id)).orElse(new Game());
+        return mapper.map(game, GameDTO.class);
     }
 
     private Score getStats(GameDTO gameDTO) {

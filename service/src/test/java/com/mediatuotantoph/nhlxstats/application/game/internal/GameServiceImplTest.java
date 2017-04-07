@@ -98,6 +98,28 @@ public class GameServiceImplTest {
 
     }
 
+    @Test
+    public void testFind() {
+
+        gameRepository.deleteAll();
+        playerRepository.deleteAll();
+        teamRepository.deleteAll();
+
+        Team homeTeam = new Team("Team 1");
+        teamRepository.insert(homeTeam);
+        Team visitorTeam = new Team("Team 2");
+        teamRepository.insert(visitorTeam);
+
+        GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
+
+        gameService.insert(gameDTO);
+
+        GameDTO foundDTO = gameService.find(gameDTO.getId());
+
+        assertEquals(gameDTO.getId(), foundDTO.getId());
+
+    }
+
     private GameDTO createGameDTO(Team homeTeam, Team visitorTeam) {
 
         GameDTO gameDTO = new GameDTO();
