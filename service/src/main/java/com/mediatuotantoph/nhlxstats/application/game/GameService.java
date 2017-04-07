@@ -10,7 +10,9 @@ import java.util.Collection;
  */
 public interface GameService {
 
-    public void insert(GameDTO game);
+    public void insert(GameDTO gameDTO);
+    
+    public void edit(GameDTO gameDTO);
 
     public Collection<GameDTO> findByNickId(String id);
 

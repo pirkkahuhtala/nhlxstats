@@ -1,5 +1,6 @@
 package com.mediatuotantoph.nhlxstats.application.game.internal;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
@@ -43,7 +44,7 @@ public class GameServiceImplTest {
     private GameService gameService;
 
     @Test
-    public void testInsert() throws Exception {
+    public void testInsert() {
 
         gameRepository.deleteAll();
         playerRepository.deleteAll();
@@ -54,19 +55,61 @@ public class GameServiceImplTest {
         Team visitorTeam = new Team("Team 2");
         teamRepository.insert(visitorTeam);
 
+        GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
+
+        gameService.insert(gameDTO);
+
+        assertNotNull(gameDTO.getId());
+
+    }
+
+    @Test
+    public void testEdit() {
+
+        gameRepository.deleteAll();
+        playerRepository.deleteAll();
+        teamRepository.deleteAll();
+
+        Team homeTeam = new Team("Team1");
+        teamRepository.insert(homeTeam);
+        Team visitorTeam = new Team("Team2");
+        teamRepository.insert(visitorTeam);
+
+        GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
+
+        gameService.insert(gameDTO);
+
+        homeTeam = new Team("Team3");
+        teamRepository.insert(homeTeam);
+        visitorTeam = new Team("Team4");
+        teamRepository.insert(visitorTeam);
+
+        gameDTO.setPlayerHomeName("Player3");
+        gameDTO.setTeamHomeId(homeTeam.getId().value());
+        gameDTO.setTeamVisitorId(visitorTeam.getId().value());
+        gameDTO.setPlayerVisitorName("Player4");
+
+        gameService.edit(gameDTO);
+
+        assertEquals("Player3", gameDTO.getPlayerHomeName());
+        assertEquals("Player4", gameDTO.getPlayerVisitorName());
+        assertEquals(homeTeam.getId().value(), gameDTO.getTeamHomeId());
+        assertEquals(visitorTeam.getId().value(), gameDTO.getTeamVisitorId());
+
+    }
+
+    private GameDTO createGameDTO(Team homeTeam, Team visitorTeam) {
+
         GameDTO gameDTO = new GameDTO();
         gameDTO.setDate(new Date());
-        gameDTO.setPlayerHomeName("Player 1");
+        gameDTO.setPlayerHomeName("Player1");
         gameDTO.setPlayerVisitorName("Player 2");
         gameDTO.setTeamHomeId(homeTeam.getId().value());
         gameDTO.setTeamVisitorId(visitorTeam.getId().value());
         gameDTO.setStatsHome(new StatsDTO());
         gameDTO.setStatsVisitor(new StatsDTO());
 
-        gameService.insert(gameDTO);
-
-        assertNotNull(gameDTO.getId());
-
+        return gameDTO;
     }
 
 }

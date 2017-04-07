@@ -14,6 +14,7 @@ import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
 import com.mediatuotantoph.nhlxstats.domain.game.GameFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
+import com.mediatuotantoph.nhlxstats.domain.game.OpponentFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
 import com.mediatuotantoph.nhlxstats.domain.game.ScoreFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Stats;
@@ -44,16 +45,36 @@ public class GameServiceImpl implements GameService {
     private GameFactory gameFactory;
     @Autowired
     private GameRepository gameRepository;
+    @Autowired
+    private OpponentFactory opponentFactory;
 
     @Override
     public void insert(GameDTO gameDTO) {
 
         Nick nickHome = nickRegister.createIfNotExists(gameDTO.getPlayerHomeName(), Platform.PS);
         Nick nickVisitor = nickRegister.createIfNotExists(gameDTO.getPlayerVisitorName(), Platform.PS);
-        Team team1 = teamRepository.findOne(gameDTO.getTeamHomeId());
-        Team team2 = teamRepository.findOne(gameDTO.getTeamVisitorId());
-        Game game = gameFactory.create(gameDTO.getDate(), nickHome, nickVisitor, team1, team2, getStats(gameDTO));
+        Team teamHome = teamRepository.findOne(gameDTO.getTeamHomeId());
+        Team teamVisitor = teamRepository.findOne(gameDTO.getTeamVisitorId());
+        Game game = gameFactory.create(gameDTO.getDate(), nickHome, nickVisitor, teamHome, teamVisitor,
+                getStats(gameDTO));
         game = gameRepository.insert(game);
+
+        mapper.map(convertToGameDTO(game), gameDTO);
+    }
+
+    @Override
+    public void edit(GameDTO gameDTO) {
+        Game game = gameRepository.findOne(gameDTO.getId());
+        if (game == null) {
+            // throw exception
+        }
+        Nick nickHome = nickRegister.createIfNotExists(gameDTO.getPlayerHomeName(), Platform.PS);
+        Nick nickVisitor = nickRegister.createIfNotExists(gameDTO.getPlayerVisitorName(), Platform.PS);
+        Team teamHome = teamRepository.findOne(gameDTO.getTeamHomeId());
+        Team teamVisitor = teamRepository.findOne(gameDTO.getTeamVisitorId());
+        game.edit(opponentFactory.create(nickHome, teamHome), opponentFactory.create(nickVisitor, teamVisitor),
+                getStats(gameDTO));
+        game = gameRepository.save(game);
 
         mapper.map(convertToGameDTO(game), gameDTO);
     }

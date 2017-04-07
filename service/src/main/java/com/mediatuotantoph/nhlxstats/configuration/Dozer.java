@@ -23,8 +23,11 @@ public class Dozer {
         mapper.addMapping(new BeanMappingBuilder() {
             @Override
             protected void configure() {
-                mapping(GameDTO.class, Game.class).fields("playerHomeName", field("home.nick.name").accessible())
+                mapping(GameDTO.class, Game.class).fields("id", field("id").accessible())
+                        .fields("playerHomeName", field("home.nick.name").accessible())
                         .fields("playerVisitorName", field("visitor.nick.name").accessible())
+                        .fields("teamHomeId", field("home.team.id").accessible())
+                        .fields("teamVisitorId", field("visitor.team.id").accessible())
                         .fields("statsHome", field("score.home").accessible())
                         .fields("statsVisitor", field("score.visitor").accessible());
             }

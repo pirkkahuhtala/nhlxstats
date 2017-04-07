@@ -22,8 +22,8 @@ public class Opponent {
         // for mapping purposes
     }
 
-    public Opponent(Nick nickId, Team team) {
-        this.nick = nickId;
+    public Opponent(Nick nick, Team team) {
+        this.nick = nick;
         this.team = team;
     }
 
