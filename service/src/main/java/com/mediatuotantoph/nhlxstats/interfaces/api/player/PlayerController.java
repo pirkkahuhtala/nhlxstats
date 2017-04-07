@@ -35,7 +35,7 @@ public class PlayerController {
 
     @RequestMapping(value = "/{name}/games", method = RequestMethod.GET)
     public Collection<GameDTO> findByPlayerId(@PathVariable String name) {
-        return gameService.findByPlayerName(name);
+        return gameService.findByNickname(name);
     }
 
 }

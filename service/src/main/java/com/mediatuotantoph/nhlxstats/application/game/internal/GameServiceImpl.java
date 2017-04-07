@@ -45,7 +45,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Collection<GameDTO> findByPlayerName(String nickname) {
+    public Collection<GameDTO> findByNickname(String nickname) {
         Nick nick = nickRegister.find(nickname);
         return games.find(nick).stream().map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
     }

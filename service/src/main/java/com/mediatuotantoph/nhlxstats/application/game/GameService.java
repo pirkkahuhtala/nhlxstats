@@ -11,6 +11,6 @@ public interface GameService {
 
     public void insert(GameDTO game);
 
-    public Collection<GameDTO> findByPlayerName(String name);
+    public Collection<GameDTO> findByNickname(String name);
     
 }
