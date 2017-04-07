@@ -12,5 +12,5 @@ public class Release {
     public boolean contains(Team team) {
         return teams.contains(team);
     }
-    
+
 }

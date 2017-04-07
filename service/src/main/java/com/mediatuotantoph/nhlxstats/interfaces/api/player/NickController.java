@@ -20,8 +20,8 @@ import com.mediatuotantoph.nhlxstats.interfaces.api.RestResource;
  *
  */
 @RestResource
-@RequestMapping(value = "players")
-public class PlayerController {
+@RequestMapping(value = "nicks")
+public class NickController {
 
     @Autowired
     private PlayerService playerResource;
@@ -33,9 +33,9 @@ public class PlayerController {
         return playerResource.find(id);
     }
 
-    @RequestMapping(value = "/{name}/games", method = RequestMethod.GET)
-    public Collection<GameDTO> findByPlayerId(@PathVariable String name) {
-        return gameService.findByNickname(name);
+    @RequestMapping(value = "/{id}/games", method = RequestMethod.GET)
+    public Collection<GameDTO> findByNick(@PathVariable String id) {
+        return gameService.findByNickId(id);
     }
 
 }

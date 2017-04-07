@@ -10,14 +10,18 @@ import org.springframework.stereotype.Service;
 import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
 import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.application.game.StatsDTO;
-import com.mediatuotantoph.nhlxstats.domain.franchise.GameVersion;
+import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
 import com.mediatuotantoph.nhlxstats.domain.game.Game;
-import com.mediatuotantoph.nhlxstats.domain.game.Games;
+import com.mediatuotantoph.nhlxstats.domain.game.GameFactory;
+import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
 import com.mediatuotantoph.nhlxstats.domain.game.Score;
 import com.mediatuotantoph.nhlxstats.domain.game.ScoreFactory;
 import com.mediatuotantoph.nhlxstats.domain.game.Stats;
 import com.mediatuotantoph.nhlxstats.domain.player.Nick;
+import com.mediatuotantoph.nhlxstats.domain.player.NickId;
 import com.mediatuotantoph.nhlxstats.domain.player.NickRegister;
+import com.mediatuotantoph.nhlxstats.domain.team.Team;
+import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
 /**
  * Class for game application service.
@@ -31,23 +35,34 @@ public class GameServiceImpl implements GameService {
     @Autowired
     private Mapper mapper;
     @Autowired
-    private Games games;
-    @Autowired
     private ScoreFactory scoreFactory;
     @Autowired
     private NickRegister nickRegister;
+    @Autowired
+    private TeamRepository teamRepository;
+    @Autowired
+    private GameFactory gameFactory;
+    @Autowired
+    private GameRepository gameRepository;
 
     @Override
     public void insert(GameDTO gameDTO) {
-        Game game = games.insert(gameDTO.getDate(), gameDTO.getPlayerHomeName(), gameDTO.getPlayerVisitorName(),
-                gameDTO.getTeamHomeId(), gameDTO.getTeamVisitorId(), getStats(gameDTO), new GameVersion());
+
+        Nick nickHome = nickRegister.createIfNotExists(gameDTO.getPlayerHomeName(), Platform.PS);
+        Nick nickVisitor = nickRegister.createIfNotExists(gameDTO.getPlayerVisitorName(), Platform.PS);
+        Team team1 = teamRepository.findOne(gameDTO.getTeamHomeId());
+        Team team2 = teamRepository.findOne(gameDTO.getTeamVisitorId());
+        Game game = gameFactory.create(gameDTO.getDate(), nickHome, nickVisitor, team1, team2, getStats(gameDTO));
+        game = gameRepository.insert(game);
+
         mapper.map(convertToGameDTO(game), gameDTO);
     }
 
     @Override
-    public Collection<GameDTO> findByNickname(String nickname) {
-        Nick nick = nickRegister.find(nickname);
-        return games.find(nick).stream().map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
+    public Collection<GameDTO> findByNickId(String nickId) {
+        Nick nick = nickRegister.find(new NickId(nickId));
+        return gameRepository.findByHomeNickId(nick.getId().value()).stream()
+                .map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
     }
 
     private Score getStats(GameDTO gameDTO) {

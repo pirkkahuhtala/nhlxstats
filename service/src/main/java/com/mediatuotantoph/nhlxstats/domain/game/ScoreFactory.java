@@ -9,5 +9,5 @@ package com.mediatuotantoph.nhlxstats.domain.game;
 public interface ScoreFactory {
 
     public Score create(Stats home, Stats visitor);
-    
+
 }

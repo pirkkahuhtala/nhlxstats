@@ -10,7 +10,7 @@ public class Score {
 
     private Stats home;
     private Stats visitor;
-    
+
     public Score() {
         // for mapping purposes
     }
@@ -21,9 +21,9 @@ public class Score {
     }
 
     public Stats getHomeStats() {
-       return home;
+        return home;
     }
-    
+
     public Stats getVisitor() {
         return visitor;
     }

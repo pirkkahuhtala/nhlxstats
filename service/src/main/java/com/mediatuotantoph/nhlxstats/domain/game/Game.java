@@ -16,13 +16,13 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  */
 @Document
 public class Game extends Model<GameId> {
-    
+
     private Date date;
     private Date editTime;
     private Score score;
     private Opponent home;
-    private Opponent visitor;    
-    
+    private Opponent visitor;
+
     public Game() {
         // for mapping purposes
     }
@@ -36,19 +36,19 @@ public class Game extends Model<GameId> {
     public Date getDate() {
         return date;
     }
-    
+
     public Nick getPlayerHome() {
         return home.getNick();
     }
-    
+
     public Team getTeamHome() {
         return home.getTeam();
     }
-    
+
     public Nick getPlayerVisitor() {
         return visitor.getNick();
     }
-    
+
     public Team getTeamVisitor() {
         return visitor.getTeam();
     }
@@ -63,9 +63,13 @@ public class Game extends Model<GameId> {
 
     /**
      * Operation to edit game
-     * @param home New home opponent
-     * @param visitor New visitor opponent
-     * @param score New game score
+     * 
+     * @param home
+     *            New home opponent
+     * @param visitor
+     *            New visitor opponent
+     * @param score
+     *            New game score
      */
     public void edit(Opponent home, Opponent visitor, Score score) {
         this.home = home;
@@ -82,5 +86,5 @@ public class Game extends Model<GameId> {
     protected GameId wrapId(String id) {
         return new GameId(id);
     }
-    
+
 }

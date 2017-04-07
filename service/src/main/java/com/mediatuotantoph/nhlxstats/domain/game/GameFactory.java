@@ -13,7 +13,6 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  */
 public interface GameFactory {
 
-    public Game create(Date date, Nick playerHome, Nick playerVisitor, Team teamHome, Team teamVisitor,
-            Score score);
+    public Game create(Date date, Nick playerHome, Nick playerVisitor, Team teamHome, Team teamVisitor, Score score);
 
 }

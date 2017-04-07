@@ -13,10 +13,10 @@ import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
  */
 @Document(collection = "nicks")
 public class Nick extends Model<NickId> {
-    
+
     private String name;
     private Platform platform;
-    
+
     public Nick() {
         // for mapping purposes
     }
@@ -25,7 +25,7 @@ public class Nick extends Model<NickId> {
         this.name = name;
         this.platform = platform;
     }
-    
+
     public boolean playsWithSamePlatform(Nick nick) {
         return this.platform == nick.platform;
     }
@@ -38,5 +38,5 @@ public class Nick extends Model<NickId> {
     protected NickId wrapId(String id) {
         return new NickId(id);
     }
-   
+
 }

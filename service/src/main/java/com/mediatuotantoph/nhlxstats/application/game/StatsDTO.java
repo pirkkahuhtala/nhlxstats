@@ -18,7 +18,7 @@ public class StatsDTO {
     private int faceoffsWon;
     private int breakaways;
     private int shorthandedGoals;
-    
+
     public StatsDTO() {
         // for mapping purposes
     }

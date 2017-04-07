@@ -8,4 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author Pirkka Huhtala
  *
  */
-public interface TeamRepository extends MongoRepository<Team, String> {}
+public interface TeamRepository extends MongoRepository<Team, String> {
+}

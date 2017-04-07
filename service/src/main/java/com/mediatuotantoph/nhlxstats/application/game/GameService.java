@@ -4,6 +4,7 @@ import java.util.Collection;
 
 /**
  * Interface for game application service.
+ * 
  * @author Pirkka Huhtala
  *
  */
@@ -11,6 +12,6 @@ public interface GameService {
 
     public void insert(GameDTO game);
 
-    public Collection<GameDTO> findByNickname(String name);
-    
+    public Collection<GameDTO> findByNickId(String id);
+
 }

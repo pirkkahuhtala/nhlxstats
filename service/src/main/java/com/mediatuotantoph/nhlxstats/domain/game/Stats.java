@@ -19,7 +19,7 @@ public class Stats {
     private int faceoffsWon;
     private int breakaways;
     private int shorthandedGoals;
-    
+
     public Stats() {
         // For mapping purposes
     }
@@ -111,5 +111,5 @@ public class Stats {
     public void setShorthandedGoals(int shorthandedGoals) {
         this.shorthandedGoals = shorthandedGoals;
     }
-    
+
 }

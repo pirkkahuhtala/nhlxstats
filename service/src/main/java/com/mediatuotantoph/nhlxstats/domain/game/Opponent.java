@@ -13,9 +13,9 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  */
 public class Opponent {
 
-    @DBRef(lazy=true)
+    @DBRef(lazy = true)
     private Team team;
-    @DBRef(lazy=true)
+    @DBRef(lazy = true)
     private Nick nick;
 
     public Opponent() {

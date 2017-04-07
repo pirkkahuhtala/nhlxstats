@@ -7,9 +7,9 @@ package com.mediatuotantoph.nhlxstats.domain;
  *
  */
 public class NHLXStatsException extends RuntimeException {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     public NHLXStatsException(String message) {
         super(message);
     }
