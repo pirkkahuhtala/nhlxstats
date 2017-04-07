@@ -2,6 +2,7 @@ package com.mediatuotantoph.nhlxstats.application.game.internal;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.Date;
 
@@ -111,12 +112,34 @@ public class GameServiceImplTest {
         teamRepository.insert(visitorTeam);
 
         GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
-
         gameService.insert(gameDTO);
 
         GameDTO foundDTO = gameService.find(gameDTO.getId());
 
         assertEquals(gameDTO.getId(), foundDTO.getId());
+
+    }
+
+    @Test
+    public void testDelete() {
+
+        gameRepository.deleteAll();
+        playerRepository.deleteAll();
+        teamRepository.deleteAll();
+
+        Team homeTeam = new Team("Team 1");
+        teamRepository.insert(homeTeam);
+        Team visitorTeam = new Team("Team 2");
+        teamRepository.insert(visitorTeam);
+
+        GameDTO gameDTO = createGameDTO(homeTeam, visitorTeam);
+        gameService.insert(gameDTO);
+
+        gameService.delete(gameDTO);
+
+        GameDTO foundDTO = gameService.find(gameDTO.getId());
+
+        assertNull(foundDTO.getId());
 
     }
 

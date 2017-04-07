@@ -15,6 +15,8 @@ public interface GameService {
     public void insert(GameDTO gameDTO);
     
     public void edit(GameDTO gameDTO);
+    
+    public void delete(GameDTO gameDTO);
 
     public Collection<GameDTO> findByNickId(String id);
 

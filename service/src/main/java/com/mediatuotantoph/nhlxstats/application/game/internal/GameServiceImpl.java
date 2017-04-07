@@ -81,6 +81,15 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
+    public void delete(GameDTO gameDTO) {
+        Game game = gameRepository.findOne(gameDTO.getId());
+        if (game == null) {
+            // throw exception
+        }
+        gameRepository.delete(game);
+    }
+
+    @Override
     public Collection<GameDTO> findByNickId(String nickId) {
         Nick nick = nickRegister.find(new NickId(nickId));
         return gameRepository.findByHomeNickId(nick.getId().value()).stream()
