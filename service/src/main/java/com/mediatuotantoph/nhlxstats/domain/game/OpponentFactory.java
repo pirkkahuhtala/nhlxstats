@@ -12,5 +12,5 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
 public interface OpponentFactory {
 
     public Opponent create(Nick nick, Team platform);
-    
+
 }
