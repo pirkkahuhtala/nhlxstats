@@ -9,17 +9,17 @@ import org.springframework.data.annotation.Transient;
  * @author Pirkka Huhtala
  *
  */
-public abstract class Model<T extends ModelId<?>> {
+public abstract class Entity<T extends EntityId<?>> {
 
     @Id
     private String id;
     @Transient
     private T modelId;
 
-    public Model() {
+    public Entity() {
     }
 
-    public Model(String id) {
+    public Entity(String id) {
         this.id = id;
     }
 

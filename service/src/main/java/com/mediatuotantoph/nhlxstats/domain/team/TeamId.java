@@ -1,8 +1,8 @@
 package com.mediatuotantoph.nhlxstats.domain.team;
 
-import com.mediatuotantoph.nhlxstats.domain.ModelId;
+import com.mediatuotantoph.nhlxstats.domain.EntityId;
 
-public class TeamId extends ModelId<String> {
+public class TeamId extends EntityId<String> {
 
     public TeamId() {
         super(null); // for mapping purposes

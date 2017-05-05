@@ -1,10 +1,10 @@
 package com.mediatuotantoph.nhlxstats.domain;
 
-public class ModelId<T> {
+public class EntityId<T> {
 
     private T value;
 
-    public ModelId(T value) {
+    public EntityId(T value) {
         this.value = value;
     }
 
@@ -28,7 +28,7 @@ public class ModelId<T> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ModelId<?> other = (ModelId<?>) obj;
+        EntityId<?> other = (EntityId<?>) obj;
         if (value == null) {
             if (other.value != null)
                 return false;

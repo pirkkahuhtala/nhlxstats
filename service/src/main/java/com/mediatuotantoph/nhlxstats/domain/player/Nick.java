@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.domain.player;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.domain.Model;
+import com.mediatuotantoph.nhlxstats.domain.Entity;
 import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
 
 /**
@@ -12,7 +12,7 @@ import com.mediatuotantoph.nhlxstats.domain.franchise.Platform;
  *
  */
 @Document(collection = "nicks")
-public class Nick extends Model<NickId> {
+public class Nick extends Entity<NickId> {
 
     private String name;
     private Platform platform;

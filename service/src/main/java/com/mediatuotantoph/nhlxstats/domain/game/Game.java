@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.domain.Model;
+import com.mediatuotantoph.nhlxstats.domain.Entity;
 import com.mediatuotantoph.nhlxstats.domain.player.Nick;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
@@ -15,7 +15,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.Team;
  *
  */
 @Document
-public class Game extends Model<GameId> {
+public class Game extends Entity<GameId> {
 
     private Date date;
     private Date editTime;

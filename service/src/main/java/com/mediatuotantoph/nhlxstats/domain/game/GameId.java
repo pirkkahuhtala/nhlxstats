@@ -1,8 +1,8 @@
 package com.mediatuotantoph.nhlxstats.domain.game;
 
-import com.mediatuotantoph.nhlxstats.domain.ModelId;
+import com.mediatuotantoph.nhlxstats.domain.EntityId;
 
-public class GameId extends ModelId<String> {
+public class GameId extends EntityId<String> {
 
     public GameId() {
         super(null); // for maaping purposes

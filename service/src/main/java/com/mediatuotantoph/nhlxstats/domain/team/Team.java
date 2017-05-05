@@ -2,7 +2,7 @@ package com.mediatuotantoph.nhlxstats.domain.team;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mediatuotantoph.nhlxstats.domain.Model;
+import com.mediatuotantoph.nhlxstats.domain.Entity;
 
 /**
  * Class for team information.
@@ -11,7 +11,7 @@ import com.mediatuotantoph.nhlxstats.domain.Model;
  *
  */
 @Document
-public class Team extends Model<TeamId> {
+public class Team extends Entity<TeamId> {
 
     private String name;
 
