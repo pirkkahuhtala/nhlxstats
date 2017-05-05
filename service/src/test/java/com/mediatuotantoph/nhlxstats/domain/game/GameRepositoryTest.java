@@ -1,7 +1,8 @@
 package com.mediatuotantoph.nhlxstats.domain.game;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.junit.Before;
@@ -28,36 +29,36 @@ public class GameRepositoryTest {
     private NickRepository nickRepository;
     @Autowired
     private TeamRepository teamRepository;
-    private Game game;
-    private Nick homePlayer;
+    private Nick player1;
+    private Game game1;
+    private Game game2;
 
     @Before
     public void init() {
 
         gameRepository.deleteAll();
-        homePlayer = new Nick("555", Platform.PS);
-        homePlayer = nickRepository.save(homePlayer);
-        Team homeTeam = new Team("666");
-        homeTeam = teamRepository.save(homeTeam);
-        Nick visitorPlayer = new Nick("777", Platform.PS);
-        visitorPlayer = nickRepository.save(visitorPlayer);
-        Team visitorTeam = new Team("888");
-        visitorTeam = teamRepository.save(visitorTeam);
+        player1 = new Nick("555", Platform.PS);
+        player1 = nickRepository.save(player1);
+        Team player1Team = new Team("666");
+        player1Team = teamRepository.save(player1Team);
+        Nick player2 = new Nick("777", Platform.PS);
+        player2 = nickRepository.save(player2);
+        Team player2Team = new Team("888");
+        player2Team = teamRepository.save(player2Team);
 
-        game = gameRepository.insert(new Game(new Date(), new Opponent(homePlayer, homeTeam),
-                new Opponent(visitorPlayer, visitorTeam), new Score(new Stats(), new Stats())));
+        game1 = gameRepository.insert(new Game(new Date(), new Opponent(player1, player1Team),
+                new Opponent(player2, player2Team), new Score(new Stats(), new Stats())));
+        game2 = gameRepository.insert(new Game(new Date(), new Opponent(player2, player2Team),
+                new Opponent(player1, player1Team), new Score(new Stats(), new Stats())));
 
-    }
-    
-    @Test
-    public void testGetModelId() {
-        game.getId();
     }
 
     @Test
     public void testFindByHomePlayerNamePlayerId() throws Exception {
-        String homePlayerNickId = homePlayer.getId().value();
-        assertFalse(gameRepository.findByHomeNickIdOrVisitorNickId(homePlayerNickId, homePlayerNickId).isEmpty());
+        String homePlayerNickId = player1.getId().value();
+        Collection<Game> games = gameRepository.findByHomeNickIdOrVisitorNickId(homePlayerNickId, homePlayerNickId);
+        assertFalse(games.isEmpty());
+        assertEquals(2, games.size());
     }
 
 }
