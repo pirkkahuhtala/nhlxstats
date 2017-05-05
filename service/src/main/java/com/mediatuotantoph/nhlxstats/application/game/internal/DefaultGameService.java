@@ -92,7 +92,7 @@ public class DefaultGameService implements GameService {
     @Override
     public Collection<GameDTO> findByNickId(String nickId) {
         Nick nick = nickRegister.find(new NickId(nickId));
-        return gameRepository.findByHomeNickId(nick.getId().value()).stream()
+        return gameRepository.findByHomeNickIdOrVisitorNickId(nick.getId().value(), nick.getId().value()).stream()
                 .map(game -> mapper.map(game, GameDTO.class)).collect(Collectors.toList());
     }
 

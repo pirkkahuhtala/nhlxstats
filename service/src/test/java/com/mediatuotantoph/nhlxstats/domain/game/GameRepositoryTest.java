@@ -56,7 +56,8 @@ public class GameRepositoryTest {
 
     @Test
     public void testFindByHomePlayerNamePlayerId() throws Exception {
-        assertFalse(gameRepository.findByHomeNickId(homePlayer.getId().value()).isEmpty());
+        String homePlayerNickId = homePlayer.getId().value();
+        assertFalse(gameRepository.findByHomeNickIdOrVisitorNickId(homePlayerNickId, homePlayerNickId).isEmpty());
     }
 
 }
