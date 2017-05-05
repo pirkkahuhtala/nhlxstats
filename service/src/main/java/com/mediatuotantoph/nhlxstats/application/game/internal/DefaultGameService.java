@@ -32,7 +32,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
  *
  */
 @Service
-public class GameServiceImpl implements GameService {
+public class DefaultGameService implements GameService {
 
     @Autowired
     private Mapper mapper;

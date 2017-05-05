@@ -8,7 +8,7 @@ import com.mediatuotantoph.nhlxstats.domain.player.Nick;
 import com.mediatuotantoph.nhlxstats.domain.team.Team;
 
 @Component
-public class OpponentFactoryImpl implements OpponentFactory {
+public class DefaultOpponentFactory implements OpponentFactory {
 
     @Override
     public Opponent create(Nick nick, Team team) {

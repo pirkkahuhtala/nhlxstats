@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.mediatuotantoph.nhlxstats.application.game.GameDTO;
 import com.mediatuotantoph.nhlxstats.application.game.GameService;
 import com.mediatuotantoph.nhlxstats.application.game.StatsDTO;
-import com.mediatuotantoph.nhlxstats.application.game.internal.GameServiceImplTest.AppConfig;
+import com.mediatuotantoph.nhlxstats.application.game.internal.DefaultGameServiceTest.AppConfig;
 import com.mediatuotantoph.nhlxstats.configuration.Dozer;
 import com.mediatuotantoph.nhlxstats.configuration.MongoConfigForTest;
 import com.mediatuotantoph.nhlxstats.domain.game.GameRepository;
@@ -27,7 +27,7 @@ import com.mediatuotantoph.nhlxstats.domain.team.TeamRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { AppConfig.class, MongoConfigForTest.class, Dozer.class })
-public class GameServiceImplTest {
+public class DefaultGameServiceTest {
 
     @Autowired
     private GameRepository gameRepository;

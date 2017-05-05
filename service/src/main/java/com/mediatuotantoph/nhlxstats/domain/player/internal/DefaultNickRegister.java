@@ -16,7 +16,7 @@ import com.mediatuotantoph.nhlxstats.domain.player.NickRepository;
  *
  */
 @Service
-public class NickRegisterImpl implements NickRegister {
+public class DefaultNickRegister implements NickRegister {
 
     @Autowired
     private NickRepository nickRepository;

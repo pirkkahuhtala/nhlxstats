@@ -13,7 +13,7 @@ import com.mediatuotantoph.nhlxstats.domain.game.Stats;
  *
  */
 @Component
-public class ScoreFactoryImpl implements ScoreFactory {
+public class DefaultScoreFactory implements ScoreFactory {
 
     @Override
     public Score create(Stats home, Stats visitor) {
